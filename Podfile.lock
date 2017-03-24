@@ -1,0 +1,37 @@
+PODS:
+  - IGColorPicker (0.2.1):
+    - M13Checkbox (~> 2.2.0)
+  - IQKeyboardManagerSwift (4.0.9)
+  - M13Checkbox (2.2.6)
+  - RxCocoa (3.5.0):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.4.0)
+  - RxSwiftExt (2.4.1):
+    - RxSwiftExt/Core (= 2.4.1)
+  - RxSwiftExt/Core (2.4.1):
+    - RxSwift (~> 3.4)
+  - SCLAlertView (0.7.0)
+  - SwiftLint (0.18.1)
+
+DEPENDENCIES:
+  - IGColorPicker (~> 0.2)
+  - IQKeyboardManagerSwift (~> 4.0)
+  - RxCocoa (~> 3.4)
+  - RxSwift (~> 3.4)
+  - RxSwiftExt
+  - SCLAlertView (~> 0.7)
+  - SwiftLint
+
+SPEC CHECKSUMS:
+  IGColorPicker: a6ed1bf42cccf9e260e24d33faec5263310b4cef
+  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
+  M13Checkbox: 9989b7e275f18493bd33b960dc68374c47d0027b
+  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
+  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
+  RxSwiftExt: 72278e4a84f35324a82a8dd359859782706576a6
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SwiftLint: b467d08f5b25dc3b3cfed243d8e1b74b91714c67
+
+PODFILE CHECKSUM: 90bf7dd9902e6dc1fd2aa6c7d59e0d35990c5794
+
+COCOAPODS: 1.2.1

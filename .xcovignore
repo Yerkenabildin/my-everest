@@ -1,0 +1,15 @@
+# Exclude Non-logic files
+- MyEverest/Entities
+- MyEverest/Constants
+- MyEverest/Utils
+
+# Exclude UI files
+- MyEverest/Views
+- MyEverest/Screens
+- UI.*
+- .*View.swift
+- CommonColorPickerView+rx.swift
+
+# Exclude all dependencies
+- Pods
+- Carthage/Checkouts
