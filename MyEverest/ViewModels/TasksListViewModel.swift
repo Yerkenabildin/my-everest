@@ -28,6 +28,12 @@ class TasksListViewModel {
     setupNotifications()
   }
 
+  func task(_ task: Task, isChecked checked: Bool) {
+    task.isComplete = checked
+    task.doneDate = checked ? Date() : nil
+    CoreDataModel.shared.saveContext()
+  }
+
   private func setupNotifications() {
     NotificationCenter
       .default
@@ -45,11 +51,7 @@ class TasksListViewModel {
   }
 
   private func updateGoals() {
-    guard let goalName = self.goal.name else {
-      unexpectedError(MyError.nilValue)
-      return
-    }
-    self.goal = CoreDataModel.shared.fetchObject(by: goalName)
+    self.goal = CoreDataModel.shared.fetchObject(by: self.goal.objectID)
     self.tasksSubject.onNext(self.goal.tasks)
   }
 }

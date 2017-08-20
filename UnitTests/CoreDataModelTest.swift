@@ -119,10 +119,10 @@ class CoreDataModelTest: XCTestCase {
     XCTAssertEqual(goals.count, 1)
   }
 
-  func testFetchByName() {
+  func testFetchByID() {
     let goal = generateGoal()
     CoreDataModel.shared.saveContext()
-    let savedGoal: Goal? = CoreDataModel.shared.fetchObject(by: goal.name ?? "")
+    let savedGoal: Goal? = CoreDataModel.shared.fetchObject(by: goal.objectID)
     XCTAssertNotNil(savedGoal)
     XCTAssertEqual(savedGoal?.name, goal.name)
     XCTAssertEqual(savedGoal?.note, goal.note)

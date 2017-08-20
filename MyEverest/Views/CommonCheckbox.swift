@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 fileprivate struct Constant {
   static let checkbox = #imageLiteral(resourceName: "checkbox")
@@ -15,7 +17,12 @@ fileprivate struct Constant {
 }
 
 class CommonCheckbox: UIButton {
-  var didSelected: ((Bool) -> Void)?
+
+  override var isSelected: Bool {
+    didSet {
+      self.sendActions(for: .valueChanged)
+    }
+  }
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -43,6 +50,17 @@ class CommonCheckbox: UIButton {
 
   @objc private func didClick() {
     self.isSelected = !self.isSelected
-    self.didSelected?(self.isSelected)
+  }
+}
+
+extension Reactive where Base: CommonCheckbox {
+  var isChecked: ControlProperty<Bool> {
+    return UIControl.rx.valuePublic(
+      self.base,
+      getter: { checkbox in
+        checkbox.isSelected
+    }, setter: { checkbox, value in
+      checkbox.isSelected = value
+    })
   }
 }
