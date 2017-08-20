@@ -42,9 +42,12 @@ class TasksListViewController: BaseViewController {
   }
 
   private func setupTableView() {
+    self.tableView.delegate = self
     self.tableView.dataSource = self
+    self.tableView.register(TaskTableViewCell.nib, forCellReuseIdentifier: TaskTableViewCell.identifier)
 
     self.tasks.asObservable()
+      .distinctUntilChanged { $0.count == $1.count }
       .subscribe(onNext: { _ in
         self.tableView.reloadData()
       }).addDisposableTo(self.disposeBag)
@@ -72,9 +75,26 @@ extension TasksListViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: .default, reuseIdentifier: UITableViewCell.identifier)
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.identifier, for: indexPath)
+      as? TaskTableViewCell else {
+        return UITableViewCell()
+    }
     let task = self.tasks.value[indexPath.row]
-    cell.textLabel?.text = task.name
+    cell.titleLabel?.text = task.name
+    cell.checkBox.isSelected = task.isComplete
+    cell.checkBox.rx.isChecked
+      .distinctUntilChanged()
+      .withLatestFrom(Observable.of(task)) { return ($0, $1) }
+      .subscribe(onNext: { isChecked, task in
+        self.viewModel.task(task, isChecked: isChecked)
+      }).addDisposableTo(cell.disposeBag)
+
     return cell
+  }
+}
+
+extension TasksListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return TaskTableViewCell.height
   }
 }

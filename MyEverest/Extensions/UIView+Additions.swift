@@ -61,6 +61,10 @@ extension UIView {
     self.addSubview(view)
     view.setupMatchParentConstraints()
   }
+
+  class var nib: UINib {
+    return UINib(nibName: identifier, bundle: nil)
+  }
 }
 
 extension Reactive where Base: UIView {

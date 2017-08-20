@@ -11,7 +11,7 @@ import CoreData
 
 fileprivate struct Constant {
   static let storageName = "MyEverest"
-  static let testStorageName = "MyEverest"
+  static let testStorageName = "MyEverestTest"
 }
 
 class CoreDataModel {
@@ -38,20 +38,8 @@ class CoreDataModel {
     return results
   }
 
-  func fetchObject<T: NSManagedObject>(by name: String) -> T? {
-    let entityName = String(describing: T.self)
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-    let predicate = NSPredicate(format: "name='\(name)'")
-    fetchRequest.predicate = predicate
-    var results: T?
-
-    do {
-      results = try self.managedObjectContext.fetch(fetchRequest).first as? T
-    } catch let error {
-      unexpectedError(error.localizedDescription)
-    }
-
-    return results
+  func fetchObject<T: NSManagedObject>(by objectID: NSManagedObjectID) -> T? {
+    return self.managedObjectContext.object(with: objectID) as? T
   }
 
   // MARK: - Delete

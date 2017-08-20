@@ -18,7 +18,7 @@ class TaskViewModel {
   typealias ErrorBlock = (([MyError]?) -> Void)
 
   private(set) var task: Task?
-  private(set) var validationObserver: Observable<Bool>!
+  private(set) var validationObsrvable: Observable<Bool>!
   private(set) var colorObsrvable: Observable<UIColor?>!
   private var goalObservable: Observable<Goal?>!
   private let disposeBag = DisposeBag()
@@ -41,12 +41,12 @@ class TaskViewModel {
         return (name: name, note: note, doneDate: doneDate, deadlineDate: deadlineDate, goal: goal)
       }
 
-    self.validationObserver = input.nameObservable
+    self.validationObsrvable = input.nameObservable
       .map {
         $0?.characters.count ?? 0 > 1
       }
 
-    let validationErrors = self.validationObserver
+    let validationErrors = self.validationObsrvable
       .map {
         $0 ? nil : [MyError.general(Constant.invalidNameText)]
       }
