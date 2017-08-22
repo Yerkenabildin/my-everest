@@ -8,13 +8,15 @@
 
 import Foundation
 import CoreData
+import RxSwift
+import RxCoreData
 
 fileprivate struct Constant {
   static let storageName = "MyEverest"
   static let testStorageName = "MyEverestTest"
 }
 
-class CoreDataModel {
+class CoreDataModel: ReactiveCompatible {
 
   static let shared = CoreDataModel()
   var databaseName = "\(Constant.storageName).sqlite"
@@ -116,4 +118,22 @@ class CoreDataModel {
     }
     return coordinator
   }()
+}
+
+extension Reactive where Base: CoreDataModel {
+  func fetchObjects<T: NSManagedObject>(predicate: NSPredicate? = nil) -> Observable<[T]> {
+    let entityName = String(describing: T.self)
+    let fetchRequest = NSFetchRequest<T>(entityName: entityName)
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    fetchRequest.predicate = predicate
+    return base.managedObjectContext.rx.entities(fetchRequest: fetchRequest)
+  }
+
+  func fetchObject<T: NSManagedObject>(predicate: NSPredicate? = nil) -> Observable<T?> {
+    let entityName = String(describing: T.self)
+    let fetchRequest = NSFetchRequest<T>(entityName: entityName)
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    fetchRequest.predicate = predicate
+    return base.managedObjectContext.rx.entities(fetchRequest: fetchRequest).map { $0.first }
+  }
 }

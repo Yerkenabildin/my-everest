@@ -20,7 +20,6 @@ extension Reactive where Base: UIControl {
       }
 
       return (existingSelf as UIControl).rx.controlEvent([.allEditingEvents, .valueChanged])
-        .debug()
         .flatMap { _ in
           return control.map { Observable.just(getter($0)).debug() } ?? Observable.empty()
         }

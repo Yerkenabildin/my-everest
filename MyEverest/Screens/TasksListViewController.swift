@@ -14,6 +14,7 @@ class TasksListViewController: BaseViewController {
 
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private var addButton: UIBarButtonItem!
+
   fileprivate var tasks = Variable<[Task]>([])
   var viewModel: TasksListViewModel!
 
@@ -47,7 +48,6 @@ class TasksListViewController: BaseViewController {
     self.tableView.register(TaskTableViewCell.nib, forCellReuseIdentifier: TaskTableViewCell.identifier)
 
     self.tasks.asObservable()
-      .distinctUntilChanged { $0.count == $1.count }
       .subscribe(onNext: { _ in
         self.tableView.reloadData()
       }).addDisposableTo(self.disposeBag)
