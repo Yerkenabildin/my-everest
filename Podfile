@@ -12,14 +12,15 @@ project 'MyEverest', {
 abstract_target 'abild.in' do
   
   # reactive programming
-  pod 'RxSwift', '~>  3.4'
-  pod 'RxCocoa', '~>  3.4'
-  pod 'RxSwiftExt'
+  pod 'RxSwift', '~>  3.6'
+  pod 'RxCocoa', '~>  3.6'
+  pod 'RxSwiftExt', '~>  2.5'
+  pod 'RxCoreData'
 
   target 'MyEverest' do
     
     # code style
-    pod 'SwiftLint'
+    pod 'SwiftLint', '~>  0.21'
 
     # UI elements
     pod 'IQKeyboardManagerSwift', '~> 4.0'
@@ -28,7 +29,7 @@ abstract_target 'abild.in' do
   end
 
   target 'UnitTests' do
-
+    pod 'RxBlocking'
   end
 end
 

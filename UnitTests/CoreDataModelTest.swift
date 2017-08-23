@@ -8,6 +8,8 @@
 
 import XCTest
 import CoreData
+import RxSwift
+import RxBlocking
 @testable import MyEverest
 
 class CoreDataModelTest: XCTestCase {
@@ -127,5 +129,30 @@ class CoreDataModelTest: XCTestCase {
     XCTAssertEqual(savedGoal?.name, goal.name)
     XCTAssertEqual(savedGoal?.note, goal.note)
     XCTAssertEqual(savedGoal?.tasks.count, goal.tasks.count)
+  }
+
+  func testListObservable() throws {
+    var result: [Goal]?
+    XCTAssertNil(result)
+    let observable: Observable<[Goal]> = CoreDataModel.shared.rx.fetchObjects()
+    XCTAssertNoThrow(result = try observable.toBlocking().first())
+    XCTAssertEqual(result?.count, 0)
+    setupGoalWithOneTask()
+    XCTAssertNoThrow(result = try observable.toBlocking().first())
+    XCTAssertEqual(result?.count, 1)
+  }
+
+  func testObjectObservable() throws {
+    var goal: Goal? = generateGoal()
+    CoreDataModel.shared.saveContext()
+    XCTAssertNotNil(goal)
+    let goalPredicate = NSPredicate(format: "(SELF = %@)", goal?.objectID ?? "")
+    let observable: Observable<Goal?> = CoreDataModel.shared.rx.fetchObject(predicate: goalPredicate).debug()
+    let newName = "new name"
+    XCTAssertNotEqual(goal?.name, newName)
+    goal?.name = newName
+    CoreDataModel.shared.saveContext()
+    XCTAssertNoThrow(goal = try observable.toBlocking().first() as? Goal)
+    XCTAssertEqual(goal?.name, newName)
   }
 }

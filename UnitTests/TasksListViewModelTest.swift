@@ -8,67 +8,79 @@
 
 import XCTest
 import RxSwift
+import RxBlocking
 @testable import MyEverest
 
 class TasksListViewModelTest: XCTestCase {
 
-  var tasksListExpectation: XCTestExpectation!
   let disposeBag = DisposeBag()
 
-  override func setUp() {
-    super.setUp()
-    setupGoalWithOneTask()
-    self.tasksListExpectation = expectation(description: "Callback is successful")
-  }
-
   func testTasks() {
-    guard let goal: Goal = CoreDataModel.shared.fetchObjects()?.first else {
-      XCTFail()
-      return
-    }
-
-    TasksListViewModel(from: goal).tasksObsrvable
-      .subscribe(onNext: { tasks in
-        XCTAssertEqual(tasks.count, 1)
-        self.tasksListExpectation.fulfill()
-      }).addDisposableTo(self.disposeBag)
-
-    waitForExpectations(timeout: 5.0) {error in
-      XCTAssertNil(error)
-    }
+    var result: [Task]?
+    XCTAssertNil(result)
+    let goal = generateGoal()
+    let task = generateTask()
+    task.goal = goal
+    CoreDataModel.shared.saveContext()
+    let observable = TasksListViewModel(from: goal).tasksObsrvable
+    XCTAssertNoThrow(result = try observable?.toBlocking().first())
+    XCTAssertEqual(result?.count, 1)
+    setupGoalWithOneTask()
+    XCTAssertNoThrow(result = try observable?.toBlocking().first())
+    XCTAssertEqual(result?.count, 1)
+    let nTask = generateTask()
+    goal.tasks.append(nTask)
+    CoreDataModel.shared.saveContext()
+    XCTAssertNoThrow(result = try observable?.toBlocking().first())
+    XCTAssertEqual(result?.count, 2)
   }
 
   func testTitleObservable() {
+    var result: String?
+    XCTAssertNil(result)
     let goal = generateGoal()
-    let task = generateTask()
-    task.goal = goal
     CoreDataModel.shared.saveContext()
-
-    TasksListViewModel(from: goal).titleObsrvable
-      .subscribe(onNext: { title in
-        XCTAssertEqual(title, goal.name)
-        self.tasksListExpectation.fulfill()
-      }).addDisposableTo(self.disposeBag)
-
-    waitForExpectations(timeout: 5.0) {error in
-      XCTAssertNil(error)
-    }
+    let observable = TasksListViewModel(from: goal).titleObsrvable
+    XCTAssertNoThrow(result = try observable?.toBlocking().first() ?? "")
+    XCTAssertNotNil(result)
+    let newName = "new name"
+    goal.name = newName
+    CoreDataModel.shared.saveContext()
+    XCTAssertNoThrow(result = try observable?.toBlocking().first() ?? "")
+    XCTAssertEqual(newName, result)
   }
 
   func testColorObservable() {
+    var result: UIColor?
+    XCTAssertNil(result)
+    let goal = generateGoal()
+    CoreDataModel.shared.saveContext()
+    let observable = TasksListViewModel(from: goal).colorObsrvable
+    XCTAssertNoThrow(result = try observable?.toBlocking().first() ?? .black)
+    XCTAssertNotNil(result)
+    let newColor = MaterialColor.cyan
+    goal.color = newColor
+    CoreDataModel.shared.saveContext()
+    XCTAssertNoThrow(result = try observable?.toBlocking().first() ?? .black)
+    XCTAssertEqual(newColor.color(), result)
+  }
+
+  func testTaskComplete() {
     let goal = generateGoal()
     let task = generateTask()
     task.goal = goal
     CoreDataModel.shared.saveContext()
+    let predicate = NSPredicate(format: "(SELF = %@)", task.objectID)
+    let observable: Observable<Task?> = CoreDataModel.shared.rx.fetchObject(predicate: predicate).debug()
 
-    TasksListViewModel(from: goal).colorObsrvable
-      .subscribe(onNext: { color in
-        XCTAssertEqual(color, goal.color?.color())
-        self.tasksListExpectation.fulfill()
-      }).addDisposableTo(self.disposeBag)
-
-    waitForExpectations(timeout: 5.0) {error in
-      XCTAssertNil(error)
-    }
+    var result: Task?
+    XCTAssertNil(result)
+    XCTAssertNoThrow(result = try observable.toBlocking().first() as? Task)
+    XCTAssertFalse(result?.isComplete ?? true)
+    XCTAssertNil(result?.doneDate)
+    TasksListViewModel(from: goal).task(result!, isChecked: true)
+    XCTAssertNoThrow(result = try observable.toBlocking().first() as? Task)
+    XCTAssertTrue(result?.isComplete ?? false)
+    XCTAssertNotNil(result?.doneDate)
   }
 }

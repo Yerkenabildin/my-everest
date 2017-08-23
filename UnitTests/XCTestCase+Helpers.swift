@@ -30,8 +30,6 @@ extension XCTestCase {
     let task = Task()
     task.name = "Vue.js components"
     task.note = "Изучить Vue.js component"
-    task.doneDate = Date()
-    task.isComplete = true
     return task
   }
 

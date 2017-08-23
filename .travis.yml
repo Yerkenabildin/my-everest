@@ -20,7 +20,7 @@ install:
 - gem install xcov
 - gem install coveralls
 - gem install json -v '1.8.6'
-- pod install
+- pod install --repo-update
 
 script:
 - xcodebuild clean build -workspace $WORKSPACE -scheme $SCHEME | xcpretty
