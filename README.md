@@ -1,3 +1,5 @@
+<meta http-equiv="Cache-control" content="no-cache">
+
 <p align="center">
     <a href="#">
         <img src="logo.png" align="middle">
@@ -8,10 +10,10 @@
 
 <p align="center">
     <a href="https://travis-ci.org/Yerkenabildin/my-everest">
-        <img src="https://travis-ci.org/Yerkenabildin/my-everest.svg?branch=master">
+        <img src="https://travis-ci.org/Yerkenabildin/my-everest.svg?branch=master&dummy=unused">
     </a>
 	<a href='https://coveralls.io/github/Yerkenabildin/my-everest?branch=master'>
-        <img src='https://coveralls.io/repos/github/Yerkenabildin/my-everest/badge.svg?branch=master' alt='Coverage Status' />
+        <img src='https://coveralls.io/repos/github/Yerkenabildin/my-everest/badge.svg?branch=master&dummy=unused' alt='Coverage Status' />
     </a>
     <a href="https://swift.org">
         <img src="http://img.shields.io/badge/swift-3.1-brightgreen.svg" alt="Swift 3.1">
