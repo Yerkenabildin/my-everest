@@ -15,6 +15,11 @@ class TaskTableViewCell: UITableViewCell {
   @IBOutlet var titleLabel: UILabel!
   var disposeBag = DisposeBag()
 
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    self.disposeBag = DisposeBag()
+  }
+
   static var height: CGFloat {
     return 60.0
   }

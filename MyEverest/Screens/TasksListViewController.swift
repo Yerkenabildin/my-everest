@@ -10,12 +10,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+fileprivate struct Constant {
+  static let todoTitle = "To Do"
+  static let doneTitle = "Done"
+}
+
 class TasksListViewController: BaseViewController {
+  typealias SectionData = (title: String, tasks: [Task])
 
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private var addButton: UIBarButtonItem!
 
-  fileprivate var tasks = Variable<[Task]>([])
+  fileprivate var data = Variable<[SectionData]>([])
   var viewModel: TasksListViewModel!
 
   // MARK: - Setup
@@ -28,7 +34,8 @@ class TasksListViewController: BaseViewController {
 
   private func setupViewModel() {
     self.viewModel.tasksObsrvable
-      .bind(to: self.tasks)
+      .map { self.split(tasks: $0) }
+      .bind(to: self.data)
       .addDisposableTo(self.disposeBag)
 
     self.viewModel.colorObsrvable
@@ -47,7 +54,7 @@ class TasksListViewController: BaseViewController {
     self.tableView.dataSource = self
     self.tableView.register(TaskTableViewCell.nib, forCellReuseIdentifier: TaskTableViewCell.identifier)
 
-    self.tasks.asObservable()
+    self.data.asObservable()
       .subscribe(onNext: { _ in
         self.tableView.reloadData()
       }).addDisposableTo(self.disposeBag)
@@ -58,6 +65,20 @@ class TasksListViewController: BaseViewController {
       .subscribe(onNext: { _ in
         self.gotoCreateTaskViewController()
       }).addDisposableTo(self.disposeBag)
+  }
+
+  // MARK: -
+  private func split(tasks: [Task]) -> [SectionData] {
+    var result: [SectionData] = []
+    let todoTasks = tasks.filter { !$0.isComplete }
+    if todoTasks.count > 0 {
+      result.append((title: Constant.todoTitle, tasks: todoTasks))
+    }
+    let doneTasks = tasks.filter { $0.isComplete }
+    if doneTasks.count > 0 {
+      result.append((title: Constant.doneTitle, tasks: doneTasks))
+    }
+    return result
   }
 
   // MARK: - Go to
@@ -71,7 +92,8 @@ class TasksListViewController: BaseViewController {
 // MARK: - UITableViewDataSource
 extension TasksListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.tasks.value.count
+    let sectionData = self.data.value[section]
+    return sectionData.tasks.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,7 +101,8 @@ extension TasksListViewController: UITableViewDataSource {
       as? TaskTableViewCell else {
         return UITableViewCell()
     }
-    let task = self.tasks.value[indexPath.row]
+    let tasks = self.data.value[indexPath.section].tasks
+    let task = tasks[indexPath.row]
     cell.titleLabel?.text = task.name
     cell.checkBox.isSelected = task.isComplete
     cell.checkBox.rx.isChecked
@@ -94,6 +117,15 @@ extension TasksListViewController: UITableViewDataSource {
 }
 
 extension TasksListViewController: UITableViewDelegate {
+
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return self.data.value.count
+  }
+
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return self.data.value[section].title
+  }
+
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return TaskTableViewCell.height
   }
