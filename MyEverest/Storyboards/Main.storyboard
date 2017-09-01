@@ -14,7 +14,7 @@
         <scene sceneID="8yo-9b-PYH">
             <objects>
                 <navigationController id="Ke1-fQ-pjA" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gqU-pp-SXn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gqU-pp-SXn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -378,7 +378,7 @@
             </objects>
             <point key="canvasLocation" x="476" y="1049"/>
         </scene>
-        <!--Tasks List View Controller-->
+        <!-- - -->
         <scene sceneID="mpS-Ug-u0s">
             <objects>
                 <viewController storyboardIdentifier="TasksListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="44W-NO-NM6" customClass="TasksListViewController" customModule="MyEverest" customModuleProvider="target" sceneMemberID="viewController">
@@ -405,8 +405,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="LLY-dp-3BG">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="-----" id="LLY-dp-3BG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="J9R-7U-lOy"/>
                     </navigationItem>
                     <connections>
