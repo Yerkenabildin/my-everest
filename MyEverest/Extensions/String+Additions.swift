@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 extension String {
   func toDate(withFormate formate: String = "dd.MM.yyyy") -> Date? {

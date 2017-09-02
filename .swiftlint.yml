@@ -15,4 +15,5 @@ identifier_name:
 excluded: # paths to ignore during linting. overridden by `included`.
   - Carthage
   - Pods
+  - UnitTests
 

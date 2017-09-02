@@ -30,6 +30,8 @@ abstract_target 'abild.in' do
 
   target 'UnitTests' do
     pod 'RxBlocking'
+    pod 'Quick'
+    pod 'Nimble'
   end
 end
 

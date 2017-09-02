@@ -6,145 +6,102 @@
 //  Copyright © 2017 abild.in. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
 import RxSwift
+import RxBlocking
 @testable import MyEverest
 
-class GoalViewModelTest: XCTestCase {
+class TaskViewModelTest: QuickSpec {
 
   var viewModel: GoalViewModel!
-  let nameSubject = PublishSubject<String?>()
-  let noteSubject = PublishSubject<String?>()
-  let colorSubject = PublishSubject<MaterialColor?>()
-  let triggerSubject = PublishSubject<Void>()
-  let disposeBag = DisposeBag()
-  var callbackExpectation: XCTestExpectation!
-  typealias ErrorBlock = (([MyError]?) -> Void)
+  var disposeBag: DisposeBag!
+  let dataModel: DataModelProtocol = CoreDataModel.default
 
-  override func setUp() {
-    super.setUp()
-    self.callbackExpectation = expectation(description: "Callback is successful")
-  }
+  override func spec() {
+    describe("GoalViewModel") {
 
-  private func setupViewModel(with goal: Goal? = nil, callback: @escaping ErrorBlock) {
-    self.viewModel = GoalViewModel(with: goal)
+      var goal: Goal!
 
-    let nameObservable = self.nameSubject.asObservable()
-    let noteObservable = self.noteSubject.asObservable()
-    let colorObservable = self.colorSubject.asObservable()
-    let triggerObservable = self.triggerSubject.asObservable()
-
-    let input = ( nameObservable: nameObservable, noteObservable: noteObservable, colorObservable: colorObservable)
-    self.viewModel.configure(input: input, triggerObservable: triggerObservable) { errors in
-      callback(errors)
-      self.callbackExpectation.fulfill()
-    }
-  }
-
-  private func sendParams(name: String?, note: String?, color: MaterialColor?) {
-    self.nameSubject.onNext(name)
-    self.noteSubject.onNext(note)
-    self.colorSubject.onNext(color)
-    self.triggerSubject.onNext()
-  }
-
-  // MARK: - Tests
-  func testSaveExample() {
-    setupViewModel { errors in
-      XCTAssertNil(errors)
-    }
-
-    let name = "name"
-    let note = "note"
-    let color = MaterialColor.blue
-    sendParams(name: name, note: note, color: color)
-
-    waitForExpectations(timeout: 5.0) {error in
-      guard let goals: [Goal] = CoreDataModel.shared.fetchObjects() else {
-        XCTFail()
-        return
+      beforeEach {
+        self.deleteAll()
+        self.disposeBag = DisposeBag()
+        goal = self.generateGoal()
+        goal.doneDate = Date()
+        goal.dueDate = Date()
+        self.dataModel.save(goal)
       }
-      let savedGoal = goals.first
-      XCTAssertNil(error)
-      XCTAssertNotNil(savedGoal)
-      XCTAssertEqual(goals.count, 1)
-      XCTAssertEqual(savedGoal?.name, name)
-      XCTAssertEqual(savedGoal?.note, note)
-      XCTAssertEqual(savedGoal?.color, color)
-      XCTAssertEqual(savedGoal?.tasks.count, 0)
-    }
-  }
 
-  func testEditExample() {
-    let goal = generateGoal()
-    CoreDataModel.shared.saveContext()
-    setupViewModel(with: goal) { error in
-      XCTAssertNil(error)
-    }
-
-    let name = "new name"
-    let note = "new note"
-    let color = MaterialColor.red
-    sendParams(name: name, note: note, color: color)
-
-    waitForExpectations(timeout: 5.0) {error in
-      guard let goals: [Goal] = CoreDataModel.shared.fetchObjects() else {
-        XCTFail()
-        return
+      it("Information access") {
+        self.viewModel = GoalViewModel(with: goal)
+        let getedGoal: Goal? = try! self.viewModel.goalObservable.toBlocking().first()
+        let name: String? = try! self.viewModel.nameObservable.toBlocking().first() as? String
+        let note: String? = try! self.viewModel.noteObservable.toBlocking().first() as? String
+        let tasks: [Task]? = try! self.viewModel.tasksObservable.toBlocking().first()
+        let color: MaterialColor? = try! self.viewModel.colorObservable.toBlocking().first() as? MaterialColor
+        let doneDate: Date? = try! self.viewModel.doneDateObservable.toBlocking().first() as? Date
+        let dueDate: Date? = try! self.viewModel.dueDateObservable.toBlocking().first() as? Date
+        expect(getedGoal).to(equal(goal))
+        expect(name).to(equal(goal.name))
+        expect(note).to(equal(goal.note))
+        expect(tasks).to(equal(goal.tasks))
+        expect(color).to(equal(goal.color))
+        expect(doneDate).to(equal(goal.doneDate))
+        expect(dueDate).to(equal(goal.dueDate))
       }
-      let savedGoal = goals.first
-      XCTAssertNil(error)
-      XCTAssertNotNil(savedGoal)
-      XCTAssertEqual(goals.count, 1)
-      XCTAssertEqual(savedGoal?.name, name)
-      XCTAssertEqual(savedGoal?.note, note)
-      XCTAssertEqual(savedGoal?.color, color)
-      XCTAssertEqual(savedGoal?.tasks.count, 0)
-    }
-  }
 
-  func testInvalidSave() {
-    setupViewModel { errors in
-      XCTAssertNotNil(errors)
-    }
-
-    sendParams(name: nil, note: nil, color: nil)
-
-    waitForExpectations(timeout: 5.0) {error in
-      guard let goals: [Goal] = CoreDataModel.shared.fetchObjects() else {
-        XCTFail()
-        return
+      it("Save") {
+        self.viewModel = GoalViewModel()
+        let name = "name"
+        let note = "note"
+        let color = MaterialColor.blue
+        let tasks: [Task] = []
+        let doneDate = Date()
+        let dueDate = Date()
+        self.viewModel.nameSubject.onNext(name)
+        self.viewModel.noteSubject.onNext(note)
+        self.viewModel.colorSubject.onNext(color)
+        self.viewModel.tasksSubject.onNext(tasks)
+        self.viewModel.doneDateSubject.onNext(doneDate)
+        self.viewModel.dueDateSubject.onNext(dueDate)
+        self.viewModel.saveTriggerSubject.onNext()
+        let goal: Goal? = try! self.viewModel.goalObservable.toBlocking().first()
+        expect(name).to(equal(goal?.name))
+        expect(note).to(equal(goal?.note))
+        expect(tasks).to(equal(goal?.tasks))
+        expect(color).to(equal(goal?.color))
+        expect(doneDate).to(equal(goal?.doneDate))
+        expect(dueDate).to(equal(goal?.dueDate))
       }
-      XCTAssertNil(error)
-      XCTAssertEqual(goals.count, 0)
-    }
-  }
 
-  func testInvalidEditExample() {
-    let goal = generateGoal()
-    CoreDataModel.shared.saveContext()
-    setupViewModel(with: goal) { errors in
-      XCTAssertNotNil(errors)
-    }
-
-    let name = "n"
-    let note = "new note"
-    let color = MaterialColor.red
-    sendParams(name: name, note: note, color: color)
-
-    waitForExpectations(timeout: 5.0) {error in
-      guard let goals: [Goal] = CoreDataModel.shared.fetchObjects() else {
-        XCTFail()
-        return
+      it("Edit") {
+        self.viewModel = GoalViewModel(with: goal)
+        let newName = "name"
+        let newNote = "note"
+        let newColor = MaterialColor.blue
+        let newTasks: [Task] = []
+        let newDoneDate = Date()
+        let newDueDate = Date()
+        self.viewModel.nameSubject.onNext(newName)
+        self.viewModel.noteSubject.onNext(newNote)
+        self.viewModel.colorSubject.onNext(newColor)
+        self.viewModel.tasksSubject.onNext(newTasks)
+        self.viewModel.doneDateSubject.onNext(newDoneDate)
+        self.viewModel.dueDateSubject.onNext(newDueDate)
+        self.viewModel.saveTriggerSubject.onNext()
+        let name: String? = try! self.viewModel.nameObservable.toBlocking().first() as? String
+        let note: String? = try! self.viewModel.noteObservable.toBlocking().first() as? String
+        let tasks: [Task]? = try! self.viewModel.tasksObservable.toBlocking().first()
+        let color: MaterialColor? = try! self.viewModel.colorObservable.toBlocking().first() as? MaterialColor
+        let doneDate: Date? = try! self.viewModel.doneDateObservable.toBlocking().first() as? Date
+        let dueDate: Date? = try! self.viewModel.dueDateObservable.toBlocking().first() as? Date
+        expect(newName).to(equal(name))
+        expect(newNote).to(equal(note))
+        expect(newTasks).to(equal(tasks))
+        expect(newColor).to(equal(color))
+        expect(newDoneDate).to(equal(doneDate))
+        expect(newDueDate).to(equal(dueDate))
       }
-      let savedGoal = goals.first
-      XCTAssertNil(error)
-      XCTAssertNotNil(savedGoal)
-      XCTAssertEqual(goals.count, 1)
-      XCTAssertNotEqual(savedGoal?.name, name)
-      XCTAssertNotEqual(savedGoal?.note, note)
-      XCTAssertNotEqual(savedGoal?.color, color)
-      XCTAssertEqual(savedGoal?.tasks.count, 0)
     }
   }
 }

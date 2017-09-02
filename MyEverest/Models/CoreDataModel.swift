@@ -16,10 +16,10 @@ fileprivate struct Constant {
   static let testStorageName = "MyEverestTest"
 }
 
-class CoreDataModel: ReactiveCompatible {
+final class CoreDataModel: DataModelProtocol, ReactiveCompatible {
 
-  static let shared = CoreDataModel()
-  var databaseName = "\(Constant.storageName).sqlite"
+  private var databaseName = "\(Constant.storageName).sqlite"
+  static let `default` = CoreDataModel()
 
   private init() {
     if ProcessInfoManager.isDatabaseEmpty {
@@ -27,30 +27,32 @@ class CoreDataModel: ReactiveCompatible {
     }
   }
 
-  // MARK: - Fetch
+  // MARK: - DataModelProtocol
   func fetchObjects<T: NSManagedObject>() -> [T]? {
     let entityName = String(describing: T.self)
-    let fetchRequest = NSFetchRequest<T>(entityName: entityName)
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
     var results: [T]?
     do {
-      results = try self.managedObjectContext.fetch(fetchRequest)
-    } catch let error {
+      results = try self.managedObjectContext.fetch(fetchRequest) as? [T]
+    } catch {
       unexpectedError(error.localizedDescription)
     }
     return results
   }
 
-  func fetchObject<T: NSManagedObject>(by objectID: NSManagedObjectID) -> T? {
-    return self.managedObjectContext.object(with: objectID) as? T
+  func fetch<T: NSManagedObject>(object: T) -> T? {
+    return self.managedObjectContext.object(with: object.objectID) as? T
   }
 
-  // MARK: - Delete
   func delete<T: NSManagedObject>(_ object: T) {
+    guard object.managedObjectContext != nil else {
+      return
+    }
     self.managedObjectContext.delete(object)
-    self.saveContext()
+//    self.saveContext()
   }
 
-  func deleteAllObjects<T: NSManagedObject>(of type: T.Type) {
+  func delete<T: NSManagedObject>(allObjectOf type: T.Type) {
     let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: T.self))
     let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetch)
 
@@ -59,19 +61,34 @@ class CoreDataModel: ReactiveCompatible {
     } catch {
       unexpectedError(error.localizedDescription)
     }
+    self.saveContext()
+  }
+
+  func insert<T: NSManagedObject>(_ object: T) {
+    self.managedObjectContext.insert(object)
+  }
+
+  func update<T: NSManagedObject>(_ object: T) {
+    self.save(object)
+  }
+
+  func save<T: NSManagedObject>(_ object: T) {
+    if object.managedObjectContext == nil {
+      self.managedObjectContext.insert(object)
+    }
+    self.saveContext()
   }
 
   // MARK: - Entity for Name
-  func entityForName(_ entityName: String) -> NSEntityDescription? {
+  func entityForName(_ entityName: String) -> NSEntityDescription {
     guard let entity = NSEntityDescription.entity(forEntityName: entityName, in: self.managedObjectContext) else {
-      unexpectedError(MyError.nilValue)
-      return nil
+      fatalError(MyError.nilValue)
     }
     return entity
   }
 
-  // MARK: - Core Data Saving support
-  func saveContext() {
+  // MARK: - Save
+  private func saveContext() {
     guard managedObjectContext.hasChanges else {
       return
     }
@@ -83,7 +100,8 @@ class CoreDataModel: ReactiveCompatible {
     }
   }
 
-  lazy var managedObjectContext: NSManagedObjectContext = {
+  // MARK: - Context and Storage
+  fileprivate lazy var managedObjectContext: NSManagedObjectContext = {
     var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
     return managedObjectContext
@@ -118,22 +136,25 @@ class CoreDataModel: ReactiveCompatible {
     }
     return coordinator
   }()
-}
 
-extension Reactive where Base: CoreDataModel {
-  func fetchObjects<T: NSManagedObject>(predicate: NSPredicate? = nil) -> Observable<[T]> {
+  func rxFetchObjects<T: NSManagedObject>(predicate: NSPredicate?) -> Observable<[T]> {
     let entityName = String(describing: T.self)
     let fetchRequest = NSFetchRequest<T>(entityName: entityName)
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
     fetchRequest.predicate = predicate
-    return base.managedObjectContext.rx.entities(fetchRequest: fetchRequest)
+    return self.managedObjectContext.rx.entities(fetchRequest: fetchRequest)
   }
 
-  func fetchObject<T: NSManagedObject>(predicate: NSPredicate? = nil) -> Observable<T?> {
+  func rxFetch<T: NSManagedObject>(object: T) -> Observable<T?> {
+    let predicate = NSPredicate(format: "(SELF = %@)", object.objectID)
+    return self.rxFetch(objectWith: predicate)
+  }
+
+  func rxFetch<T: NSManagedObject>(objectWith predicate: NSPredicate) -> Observable<T?> {
     let entityName = String(describing: T.self)
     let fetchRequest = NSFetchRequest<T>(entityName: entityName)
     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
     fetchRequest.predicate = predicate
-    return base.managedObjectContext.rx.entities(fetchRequest: fetchRequest).map { $0.first }
+    return self.managedObjectContext.rx.entities(fetchRequest: fetchRequest).map { $0.first }
   }
 }

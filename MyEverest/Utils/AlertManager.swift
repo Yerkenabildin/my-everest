@@ -8,6 +8,8 @@
 
 import UIKit
 import SCLAlertView
+import RxSwift
+import RxCocoa
 
 fileprivate struct Constant {
   static let errorTitle = "Error"
@@ -67,5 +69,19 @@ class AlertManager: SCLAlertView {
 
   func close() {
     self.responder?.close()
+  }
+}
+
+extension Reactive where Base: AlertManager {
+  func showError() -> UIBindingObserver<Base, String> {
+    return UIBindingObserver(UIElement: self.base) { alertManager, text in
+      alertManager.showError(text)
+    }
+  }
+
+  func showEdit() -> UIBindingObserver<Base, String> {
+    return UIBindingObserver(UIElement: self.base) { alertManager, text in
+      alertManager.showEdit(text)
+    }
   }
 }

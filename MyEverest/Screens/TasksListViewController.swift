@@ -38,12 +38,14 @@ class TasksListViewController: BaseViewController {
       .bind(to: self.data)
       .addDisposableTo(self.disposeBag)
 
-    self.viewModel.colorObsrvable
+    self.viewModel.goalObservable
+      .map { $0.color?.color() }
       .unwrap()
       .bind(to: self.tintColor)
       .addDisposableTo(self.disposeBag)
 
-    self.viewModel.titleObsrvable
+    self.viewModel.goalObservable
+      .map { $0.name }
       .unwrap()
       .bind(to: self.rx.title)
       .addDisposableTo(self.disposeBag)
@@ -95,7 +97,8 @@ class TasksListViewController: BaseViewController {
   // MARK: - Go to
   private func gotoCreateTaskViewController() {
     let viewController: TaskViewController = UIStoryboard.instantiate()
-    viewController.viewModel = TaskViewModel(with: self.viewModel.goalObservable)
+//    TODO: -
+//    viewController.viewModel = TaskViewModel(with: self.viewModel.goal)
     self.present(viewController, animated: true)
   }
 }

@@ -50,38 +50,75 @@ class TaskViewController: ObjectViewController {
   }
 
   func setupViewModel() {
-    let nameObservable = self.titleTextField.rx.text.asObservable()
-    let noteObservable = self.noteTextView.rx.text.asObservable()
-    let doneDateObservable = self.doneDateSelector.rx.selectedDate.asObservable()
-    let deadlineObservable = self.deadlineSelector.rx.selectedDate.asObservable()
-    let triggerObservable = self.saveButton.rx.tap.asObservable()
-    let input = (nameObservable: nameObservable, noteObservable: noteObservable,
-      doneDateObservable: doneDateObservable, deadlineObservable: deadlineObservable)
-
-    self.viewModel.configure(input: input, triggerObservable: triggerObservable) { errors in
-      if let errors = errors {
-        AlertManager().showError(errors.localizedDescription)
-        return
-      }
-      self.dismiss(animated: true, completion: nil)
-    }
-
-    self.viewModel.colorObsrvable
-      .unwrap()
-      .bind(to: self.tintColor)
-      .addDisposableTo(self.disposeBag)
+//    TODO: -
+//    self.titleTextField.rx.text.asObservable()
+//      .unwrap()
+//      .distinctUntilChanged()
+//      .subscribe(onNext: { text in
+//        self.viewModel.task.value.name = text
+//      }).addDisposableTo(self.disposeBag)
+//
+//    self.noteTextView.rx.text.asObservable()
+//      .unwrap()
+//      .distinctUntilChanged()
+//      .subscribe(onNext: { text in
+//        self.viewModel.task.value.note = text
+//      }).addDisposableTo(self.disposeBag)
+//
+//    self.doneDateSelector.rx.selectedDate.asObservable()
+//      .unwrap()
+//      .distinctUntilChanged()
+//      .subscribe(onNext: { date in
+//        self.viewModel.task.value.doneDate = date
+//      }).addDisposableTo(self.disposeBag)
+//
+//    self.deadlineSelector.rx.selectedDate.asObservable()
+//      .unwrap()
+//      .distinctUntilChanged()
+//      .subscribe(onNext: { date in
+//        self.viewModel.task.value.dueDate = date
+//      }).addDisposableTo(self.disposeBag)
+//
+//    self.saveButton.rx.tap.asObservable()
+//      .subscribe {
+//        self.viewModel.saveChanges()
+//      }.addDisposableTo(self.disposeBag)
   }
 
   private func fillFields() {
-    guard let task = self.viewModel.task else {
-      self.doneDateView.isHidden = true
-      return
-    }
-    self.doneDateView.isHidden = false
-    self.titleTextField.text = task.name
-    self.noteTextView.text = task.note
-    self.deadlineSelector.selectedDate = task.dueDate
-    self.doneDateSelector.selectedDate = task.doneDate
+//    TODO: -
+//    self.viewModel.colorObsrvable
+//      .unwrap()
+//      .distinctUntilChanged()
+//      .bind(to: self.tintColor)
+//      .addDisposableTo(self.disposeBag)
+//
+//    self.viewModel.task.asObservable()
+//      .map { $0.name }
+//      .bind(to: self.titleTextField.rx.text)
+//      .addDisposableTo(self.disposeBag)
+//
+//    self.viewModel.task.asObservable()
+//      .map { $0.note }
+//      .subscribe(onNext: { text in
+//        self.noteTextView.text = text
+//      }).addDisposableTo(self.disposeBag)
+//
+//    self.viewModel.task.asObservable()
+//      .map { $0.doneDate }
+//      .unwrap()
+//      .do {
+//        self.doneDateView.isHidden = false
+//      }.bind(to: self.doneDateSelector.rx.selectedDate)
+//      .addDisposableTo(self.disposeBag)
+//
+//    self.viewModel.task.asObservable()
+//      .map { $0.dueDate }
+//      .unwrap()
+//      .do {
+//        self.doneDateView.isHidden = false
+//      }.bind(to: self.deadlineSelector.rx.selectedDate)
+//      .addDisposableTo(self.disposeBag)
   }
 
   override func setupTintColor() {

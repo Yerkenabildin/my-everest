@@ -8,55 +8,76 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
+import RxSwiftExt
 
-fileprivate struct Constant {
-  static let invalidNameText = "name can't be less then 2 characters"
+enum GoalError: Error {
+  case nameLengthLess
+
+  var localizedDescription: String {
+    switch self {
+    case .nameLengthLess:
+      return "Name can't be less then 2 characters"
+    }
+  }
 }
 
 class GoalViewModel {
-
-  private(set) var colorTitle = Variable<String?>(nil)
-  private(set) var goal: Goal?
-  private(set) var validationObserver: Observable<Bool>!
-  typealias ErrorBlock = (([MyError]?) -> Void)
-  private let disposeBag = DisposeBag()
+  private var disposeBag = DisposeBag()
+  private var goalVariable: Variable<Goal>!
+  private(set) var goalObservable: Observable<Goal>!
+  private(set) var compliteObsrvable: Observable<Error?>!
+  private(set) var nameObservable: Observable<String?>
+  private(set) var noteObservable: Observable<String?>
+  private(set) var tasksObservable: Observable<[Task]>
+  private(set) var colorObservable: Observable<MaterialColor?>
+  private(set) var doneDateObservable: Observable<Date?>
+  private(set) var dueDateObservable: Observable<Date?>
+  private(set) var nameSubject = BehaviorSubject<String?>(value: nil)
+  private(set) var noteSubject = BehaviorSubject<String?>(value: nil)
+  private(set) var tasksSubject = BehaviorSubject<[Task]?>(value: nil)
+  private(set) var colorSubject = BehaviorSubject<MaterialColor?>(value: nil)
+  private(set) var doneDateSubject = BehaviorSubject<Date?>(value: nil)
+  private(set) var dueDateSubject = BehaviorSubject<Date?>(value: nil)
+  private(set) var saveTriggerSubject = PublishSubject<Void>()
 
   init(with goal: Goal? = nil) {
-    self.goal = goal
+    let goal = goal ?? Goal()
+    self.goalVariable = Variable(goal)
+    self.goalObservable = self.goalVariable.asObservable()
+    self.nameObservable = self.goalObservable.map { $0.name }
+    self.noteObservable = self.goalObservable.map { $0.note }
+    self.tasksObservable = self.goalObservable.map { $0.tasks }
+    self.colorObservable = self.goalObservable.map { $0.color }
+    self.doneDateObservable = self.goalObservable.map { $0.doneDate }
+    self.dueDateObservable = self.goalObservable.map { $0.dueDate }
+    self.compliteObsrvable = self.saveTriggerSubject
+      .withLatestFrom(self.goalObservable).map {
+        $0.name?.characters.count ?? 0 < 2 ? GoalError.nameLengthLess : nil
+    }
+    setupSubscriptions()
   }
 
-  func configure(input:( nameObservable: Observable<String?>, noteObservable: Observable<String?>,
-    colorObservable: Observable<MaterialColor?>), triggerObservable: Observable<Void>,
-    callback: @escaping ErrorBlock) {
-
-    let goalObservable = Observable.combineLatest(input.nameObservable, input.noteObservable,
-      input.colorObservable) { name, note, color in
-        return (name: name, note: note, color: color)
-      }
-
-    self.validationObserver = input.nameObservable
-      .map {
-        $0?.characters.count ?? 0 > 1
-      }
-
-    let validationErrors = self.validationObserver
-      .map {
-        $0 ? nil : [MyError.general(Constant.invalidNameText)]
-    }
-
-    triggerObservable.withLatestFrom(validationErrors)
-      .withLatestFrom(goalObservable) { errors, params -> ([MyError]?, Goal?) in
-        guard errors == nil else {
-          return (errors, nil)
-        }
-        let goal = self.goal ?? Goal()
+  private func setupSubscriptions() {
+    Observable.combineLatest(self.nameSubject, self.noteSubject,
+                             self.tasksSubject, self.colorSubject,
+                             self.doneDateSubject, self.dueDateSubject) {
+        return (name: $0, note: $1, tasks: $2, color: $3, doneDate: $4, dueDate: $5)
+      }.skip(1)
+      .withLatestFrom(self.goalObservable) { ($0, $1) }
+      .subscribe(onNext: { params, goal in
         goal.name = params.name
         goal.note = params.note
+        goal.tasks = params.tasks ?? []
         goal.color = params.color
-        return (nil, goal)
-      }.subscribe(onNext: { error, _ in
-        CoreDataModel.shared.saveContext()
-        callback(error)
+        goal.doneDate = params.doneDate
+        goal.dueDate = params.dueDate
+      }).addDisposableTo(self.disposeBag)
+
+    self.saveTriggerSubject
+      .withLatestFrom(self.goalObservable)
+      .subscribe(onNext: { goal in
+        CoreDataModel.default.save(goal)
       }).addDisposableTo(self.disposeBag)
   }
 }

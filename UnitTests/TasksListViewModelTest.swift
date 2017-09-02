@@ -6,81 +6,87 @@
 //  Copyright © 2017 abild.in. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
 import RxSwift
-import RxBlocking
 @testable import MyEverest
 
-class TasksListViewModelTest: XCTestCase {
+// TODO: - Add Test for Goal
+class TasksListViewModelTest: QuickSpec {
+  var disposeBag: DisposeBag!
+  var tasks: [Task] = []
+  var goal: Goal!
+  var viewModel: TasksListViewModel!
 
-  let disposeBag = DisposeBag()
-
-  func testTasks() {
-    var result: [Task]?
-    XCTAssertNil(result)
-    let goal = generateGoal()
-    let task = generateTask()
-    task.goal = goal
-    CoreDataModel.shared.saveContext()
-    let observable = TasksListViewModel(from: goal).tasksObsrvable
-    XCTAssertNoThrow(result = try observable?.toBlocking().first())
-    XCTAssertEqual(result?.count, 1)
-    setupGoalWithOneTask()
-    XCTAssertNoThrow(result = try observable?.toBlocking().first())
-    XCTAssertEqual(result?.count, 1)
-    let nTask = generateTask()
-    goal.tasks.append(nTask)
-    CoreDataModel.shared.saveContext()
-    XCTAssertNoThrow(result = try observable?.toBlocking().first())
-    XCTAssertEqual(result?.count, 2)
+  private func generateViewModel() -> TasksListViewModel {
+    let task = self.generateTask()
+    self.goal = self.generateGoal()
+    task.goal = self.goal
+    CoreDataModel.default.save(goal)
+    CoreDataModel.default.save(task)
+    let viewModel = TasksListViewModel(from: goal)
+    return viewModel
   }
 
-  func testTitleObservable() {
-    var result: String?
-    XCTAssertNil(result)
-    let goal = generateGoal()
-    CoreDataModel.shared.saveContext()
-    let observable = TasksListViewModel(from: goal).titleObsrvable
-    XCTAssertNoThrow(result = try observable?.toBlocking().first() ?? "")
-    XCTAssertNotNil(result)
-    let newName = "new name"
-    goal.name = newName
-    CoreDataModel.shared.saveContext()
-    XCTAssertNoThrow(result = try observable?.toBlocking().first() ?? "")
-    XCTAssertEqual(newName, result)
-  }
+  override func spec() {
+    describe("TasksListViewModel") {
+      beforeEach {
+        self.disposeBag = DisposeBag()
+        self.viewModel = self.generateViewModel()
+        self.viewModel.tasksObsrvable
+          .subscribe(onNext: { value in
+            self.tasks = value
+          }).addDisposableTo(self.disposeBag)
 
-  func testColorObservable() {
-    var result: UIColor?
-    XCTAssertNil(result)
-    let goal = generateGoal()
-    CoreDataModel.shared.saveContext()
-    let observable = TasksListViewModel(from: goal).colorObsrvable
-    XCTAssertNoThrow(result = try observable?.toBlocking().first() ?? .black)
-    XCTAssertNotNil(result)
-    let newColor = MaterialColor.cyan
-    goal.color = newColor
-    CoreDataModel.shared.saveContext()
-    XCTAssertNoThrow(result = try observable?.toBlocking().first() ?? .black)
-    XCTAssertEqual(newColor.color(), result)
-  }
+        self.viewModel.goalObservable
+          .subscribe(onNext: { value in
+            self.goal = value
+          }).addDisposableTo(self.disposeBag)
+      }
 
-  func testTaskComplete() {
-    let goal = generateGoal()
-    let task = generateTask()
-    task.goal = goal
-    CoreDataModel.shared.saveContext()
-    let predicate = NSPredicate(format: "(SELF = %@)", task.objectID)
-    let observable: Observable<Task?> = CoreDataModel.shared.rx.fetchObject(predicate: predicate).debug()
+      describe("Tasks") {
+        it("Add new task") {
+          let task = self.generateTask()
+          CoreDataModel.default.insert(task)
+          task.goal = self.goal
+          CoreDataModel.default.save(task)
+          expect(self.tasks).toEventuallyNot(beEmpty())
+          let taskFromDB = self.tasks.first { $0.objectID == task.objectID }
+          expect(taskFromDB).toEventuallyNot(beNil())
+        }
 
-    var result: Task?
-    XCTAssertNil(result)
-    XCTAssertNoThrow(result = try observable.toBlocking().first() as? Task)
-    XCTAssertFalse(result?.isComplete ?? true)
-    XCTAssertNil(result?.doneDate)
-    TasksListViewModel(from: goal).task(result!, isChecked: true)
-    XCTAssertNoThrow(result = try observable.toBlocking().first() as? Task)
-    XCTAssertTrue(result?.isComplete ?? false)
-    XCTAssertNotNil(result?.doneDate)
+        it("Delete task") {
+          expect(self.tasks).toEventuallyNot(beEmpty())
+          let task = self.tasks.first!
+          let count = self.tasks.count
+          CoreDataModel.default.delete(task)
+          expect(self.tasks.count).toEventually(equal(count-1))
+          let taskFromDB = self.tasks.first { $0.objectID == task.objectID }
+          expect(taskFromDB).to(beNil())
+        }
+
+        it("Update task") {
+          expect(self.tasks).toEventuallyNot(beEmpty())
+          let task = self.tasks.first!
+          self.viewModel.task(task, isChecked: true)
+          var taskFromDB = self.tasks.first { $0.objectID == task.objectID }
+          expect(taskFromDB?.doneDate).toEventually(equal(task.doneDate))
+
+          self.viewModel.task(task, isChecked: false)
+          taskFromDB = self.tasks.first { $0.objectID == task.objectID }
+          expect(taskFromDB?.doneDate).toEventually(beNil())
+        }
+      }
+
+      describe("Goal") {
+        it("Update") {
+          expect(self.goal).toEventuallyNot(beNil())
+          self.goal.name = "newName"
+          CoreDataModel.default.save(self.goal)
+          let goalFromDB: Goal? =  try! self.viewModel.goalObservable.toBlocking().first()
+          expect(goalFromDB?.name).toEventually(equal(self.goal.name))
+        }
+      }
+    }
   }
 }

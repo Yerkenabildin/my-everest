@@ -12,8 +12,10 @@ import CoreData
 
 class GoalsListViewModel {
   private(set) var goalsObsrvable: Observable<[Goal]>!
+  private let dataModel: DataModelProtocol!
 
   init() {
-    self.goalsObsrvable = CoreDataModel.shared.rx.fetchObjects()
+    self.dataModel = CoreDataModel.default
+    self.goalsObsrvable = self.dataModel.rxFetchObjects(predicate: nil)
   }
 }

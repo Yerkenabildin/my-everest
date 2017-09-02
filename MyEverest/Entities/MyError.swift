@@ -10,8 +10,10 @@ import Foundation
 
 enum MyError: Error {
   case general(String)
+  case wrongType
   case localStorageFail
   case nilValue
+  case noImplementation
 
   var debugDescription: String {
     switch self {
@@ -19,6 +21,10 @@ enum MyError: Error {
       return description
     case .localStorageFail:
       return "There was an error creating or loading the application's saved data."
+    case .wrongType:
+      return "Не правильный формат"
+    case .noImplementation:
+      return "Нет имплементации"
     case .nilValue:
       return "Value does not exist"
     }
@@ -28,10 +34,11 @@ enum MyError: Error {
     switch self {
     case .general(let description):
       return description
-    case .localStorageFail:
+    case .localStorageFail, .wrongType:
       return "There was an error creating or loading the application's saved data."
-    case .nilValue:
-      return "Value does not exist"
+    default:
+      return "Please try again"
+
     }
   }
 }

@@ -21,8 +21,12 @@ class GoalViewController: ObjectViewController {
 
   @IBOutlet private var colorButton: UIButton!
   var viewModel = GoalViewModel()
-  private var colorPickerAlert: AlertManager!
-  private var colorPickerView = CommonColorPickerView()
+  private lazy var colorPickerView = CommonColorPickerView()
+  private lazy var colorPickerAlert: AlertManager = {
+    let alertManager = AlertManager(width: self.colorPickerView.frame.width, showCloseButton: false)
+    alertManager.customSubview = self.colorPickerView
+    return alertManager
+  }()
 
   // MARK: - Setup
   override func setup() {
@@ -39,53 +43,57 @@ class GoalViewController: ObjectViewController {
   }
 
   private func setupViewModel() {
-    let nameObservable = self.titleTextField.rx.text.asObservable()
-    let noteObservable = self.noteTextView.rx.text.asObservable()
-    let colorObservable = self.colorPickerView.rx.selectedColor.asObservable().map { color in
-      return MaterialColor.instant(with: color)
-    }
-    let triggerObservable = self.saveButton.rx.tap.asObservable()
-    let input = (nameObservable: nameObservable, noteObservable: noteObservable, colorObservable: colorObservable)
+    self.titleTextField.rx.text.asObservable()
+      .bind(to: self.viewModel.nameSubject)
+      .addDisposableTo(self.disposeBag)
 
-    self.viewModel.configure(input: input, triggerObservable: triggerObservable) { errors in
-      if let errors = errors {
-        AlertManager().showError(errors.localizedDescription)
-        return
-      }
-      self.dismiss(animated: true, completion: nil)
-    }
+    self.noteTextView.rx.text.asObservable()
+      .bind(to: self.viewModel.noteSubject)
+      .addDisposableTo(self.disposeBag)
 
-    self.viewModel.validationObserver?
-      .bind(to: self.saveButton.rx.isEnabled)
+    self.colorPickerView.rx.selectedColor.asObservable().map {
+        MaterialColor.instant(with: $0)
+      }.bind(to: self.viewModel.colorSubject)
+      .addDisposableTo(self.disposeBag)
+
+    self.saveButton.rx.tap.asObservable()
+      .bind(to: self.viewModel.saveTriggerSubject)
+      .addDisposableTo(self.disposeBag)
+
+    self.viewModel.compliteObsrvable?
+      .filter { $0 == nil }
+      .subscribe(onNext: { _ in
+        self.dismiss(animated: true, completion: nil)
+      }).addDisposableTo(self.disposeBag)
+
+    self.viewModel.compliteObsrvable?
+      .map { $0?.localizedDescription }
+      .unwrap()
+      .bind(to: AlertManager().rx.showError())
       .addDisposableTo(self.disposeBag)
   }
 
   override func setupTintColor() {
     super.setupTintColor()
-
     self.tintColor.asObservable()
       .bind(to: self.colorButton.rx.tintColor)
       .addDisposableTo(self.disposeBag)
   }
 
   private func setupColorPicker() {
-    self.colorPickerAlert = AlertManager(width: self.colorPickerView.frame.width, showCloseButton: false)
-    self.colorPickerAlert.customSubview = self.colorPickerView
-
     Observable.just(MaterialColor.allColors)
       .bind(to: self.colorPickerView.rx.colors)
       .addDisposableTo(self.disposeBag)
 
     Observable.just(Constant.defaultColor)
-      .map { color in
-        return MaterialColor.instant(with: color)?.rawValue
-      }.bind(to: self.colorPickerView.rx.preselectedIndex)
+      .map { MaterialColor.instant(with: $0)?.rawValue }
+      .bind(to: self.colorPickerView.rx.preselectedIndex)
       .addDisposableTo(self.disposeBag)
 
     self.colorButton.rx.tap
-      .subscribe(onNext: { _ in
-        self.colorPickerAlert.showEdit(Constant.colorAlertTitle)
-      }).addDisposableTo(self.disposeBag)
+      .map { Constant.colorAlertTitle }
+      .bind(to: self.colorPickerAlert.rx.showEdit())
+      .addDisposableTo(self.disposeBag)
 
     self.colorPickerView.rx.selectedColor.asObservable()
       .unwrap()
@@ -95,9 +103,8 @@ class GoalViewController: ObjectViewController {
       }).addDisposableTo(self.disposeBag)
 
     self.colorPickerView.rx.selectedColor.asObservable()
-      .map { color in
-        return MaterialColor.instant(with: color)?.code()
-      }.bind(to: self.colorButton.rx.title())
+      .map { MaterialColor.instant(with: $0)?.code() }
+      .bind(to: self.colorButton.rx.title())
       .addDisposableTo(self.disposeBag)
   }
 }
