@@ -70,11 +70,22 @@ class TasksListViewController: BaseViewController {
   // MARK: -
   private func split(tasks: [Task]) -> [SectionData] {
     var result: [SectionData] = []
-    let todoTasks = tasks.filter { !$0.isComplete }
+    let todoTasks = tasks.filter { !$0.isComplete }.sorted { taskA, taskB in
+      if let dateA = taskA.dueDate, let dateB = taskB.dueDate {
+        return dateA < dateB
+      }
+      return taskB.dueDate != nil
+    }
     if todoTasks.count > 0 {
       result.append((title: Constant.todoTitle, tasks: todoTasks))
     }
-    let doneTasks = tasks.filter { $0.isComplete }
+
+    let doneTasks = tasks.filter { $0.isComplete }.sorted { taskA, taskB in
+      guard let dateA = taskA.doneDate, let dateB = taskB.doneDate else {
+        return true
+      }
+       return dateA > dateB
+    }
     if doneTasks.count > 0 {
       result.append((title: Constant.doneTitle, tasks: doneTasks))
     }
