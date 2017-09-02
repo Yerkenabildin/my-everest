@@ -378,7 +378,7 @@
             </objects>
             <point key="canvasLocation" x="476" y="1049"/>
         </scene>
-        <!-- - -->
+        <!--Tasks List View Controller-->
         <scene sceneID="mpS-Ug-u0s">
             <objects>
                 <viewController storyboardIdentifier="TasksListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="44W-NO-NM6" customClass="TasksListViewController" customModule="MyEverest" customModuleProvider="target" sceneMemberID="viewController">
@@ -405,7 +405,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="-----" id="LLY-dp-3BG">
+                    <navigationItem key="navigationItem" id="LLY-dp-3BG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="J9R-7U-lOy"/>
                     </navigationItem>
                     <connections>
