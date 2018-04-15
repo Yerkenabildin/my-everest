@@ -1,14 +1,7 @@
-//
-//  UIAlertController+UIImagePickerController.swift
-//  GoBiker-V2
-//
-//  Created by Yerkebulan Abildin on 24.03.18.
-//  Copyright © 2018 Nour Helmi. All rights reserved.
-//
-
 import Foundation
 import RxSwift
 import RxCocoa
+import RxSwiftExt
 
 fileprivate struct RxImagePickerAlertAction: RxAlertActionType {
   typealias Result = UIImagePickerControllerSourceType

@@ -1,11 +1,3 @@
-//
-//  ErrorHandler.swift
-//  Railways
-//
-//  Created by Yerkebulan Abildin on 15.06.17.
-//  Copyright © 2017 Aviata. All rights reserved.
-//
-
 import Foundation
 
 func fatalError(_ error: MyError, file: StaticString = #file, line: UInt = #line) -> Never {

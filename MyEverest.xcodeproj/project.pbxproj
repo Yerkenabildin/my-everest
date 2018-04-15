@@ -72,7 +72,6 @@
 		3A6306DB1F412EC200F336F8 /* MaterialColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306D51F412EC200F336F8 /* MaterialColor.swift */; };
 		3A6306DC1F412EC200F336F8 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306D61F412EC200F336F8 /* MyError.swift */; };
 		3A6306DD1F412EC200F336F8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306D71F412EC200F336F8 /* Task.swift */; };
-		3A6306E31F412EE500F336F8 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306E01F412EE500F336F8 /* AlertManager.swift */; };
 		3A6306E41F412EE500F336F8 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306E11F412EE500F336F8 /* ErrorHandler.swift */; };
 		3A6306F21F412F0400F336F8 /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306E81F412F0400F336F8 /* Date+Additions.swift */; };
 		3A6306F31F412F0400F336F8 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306E91F412F0400F336F8 /* String+Additions.swift */; };
@@ -82,21 +81,11 @@
 		3A6306F81F412F0400F336F8 /* UINavigationBar+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EE1F412F0400F336F8 /* UINavigationBar+rx.swift */; };
 		3A6306F91F412F0400F336F8 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EF1F412F0400F336F8 /* UIView+Additions.swift */; };
 		3A6306FA1F412F0400F336F8 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306F01F412F0400F336F8 /* UIViewController+Additions.swift */; };
-		3A6306FF1F412F3500F336F8 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306FC1F412F3500F336F8 /* CoreDataModel.swift */; };
-		3A6307001F412F3500F336F8 /* MyEverest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306FD1F412F3500F336F8 /* MyEverest.xcdatamodeld */; };
-		3A6307101F412F6F00F336F8 /* CommonCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6307071F412F6F00F336F8 /* CommonCheckbox.swift */; };
-		3A6307121F412F6F00F336F8 /* CommonDateSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6307091F412F6F00F336F8 /* CommonDateSpinner.swift */; };
-		3A6307131F412F6F00F336F8 /* CommonSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63070A1F412F6F00F336F8 /* CommonSpinner.swift */; };
-		3A6307141F412F6F00F336F8 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63070B1F412F6F00F336F8 /* CommonTextField.swift */; };
-		3A6307151F412F6F00F336F8 /* CommonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63070C1F412F6F00F336F8 /* CommonTextView.swift */; };
-		3A63071A1F412F8D00F336F8 /* UILabel+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6307191F412F8D00F336F8 /* UILabel+Additions.swift */; };
 		3A6307411F41309900F336F8 /* GoalsCoreDataModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6307401F41309900F336F8 /* GoalsCoreDataModelTest.swift */; };
 		3A9075591F5AE436008AFAB5 /* TasksCoreDataModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9075581F5AE436008AFAB5 /* TasksCoreDataModelTest.swift */; };
 		3A90755B1F5B01F4008AFAB5 /* RxCoreDataModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A90755A1F5B01F4008AFAB5 /* RxCoreDataModelTest.swift */; };
 		3A90755D1F5B0962008AFAB5 /* CoreDataModelErrorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A90755C1F5B0962008AFAB5 /* CoreDataModelErrorHandlerTest.swift */; };
 		3A9BCB731F4418D200489365 /* DateFormateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BCB721F4418D200489365 /* DateFormateTest.swift */; };
-		3AB119401F5BDFB000C80FCD /* DataModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1193F1F5BDFB000C80FCD /* DataModelProtocol.swift */; };
-		3AC935111F413DEB00DF7A5B /* UIStoryboard+Additionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC935101F413DEB00DF7A5B /* UIStoryboard+Additionals.swift */; };
 		3ADCDC7E1F475898005560F4 /* GoalsListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADCDC7D1F475898005560F4 /* GoalsListViewModelTest.swift */; };
 		3AF27B341F41A08100C096C3 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AF27B361F41A08100C096C3 /* Localization.strings */; };
 		3AF27B3B1F41A0CD00C096C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AF27B391F41A0CD00C096C3 /* InfoPlist.strings */; };
@@ -173,7 +162,7 @@
 		3A5BEC192083A365001BBF90 /* GoalSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSection.swift; sourceTree = "<group>"; };
 		3A5BEC1B2083A739001BBF90 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		3A5BEC1D2083A77C001BBF90 /* GoalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalTableViewCell.xib; sourceTree = "<group>"; };
-		3A5BEC202083A807001BBF90 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		3A5BEC202083A807001BBF90 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = MyEverest/SupportFiles/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		3A6306361F412D5600F336F8 /* MyEverest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyEverest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6306451F412D5600F336F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A63064C1F412DF900F336F8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -184,7 +173,6 @@
 		3A6306D51F412EC200F336F8 /* MaterialColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialColor.swift; sourceTree = "<group>"; };
 		3A6306D61F412EC200F336F8 /* MyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		3A6306D71F412EC200F336F8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		3A6306E01F412EE500F336F8 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		3A6306E11F412EE500F336F8 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		3A6306E81F412F0400F336F8 /* Date+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
 		3A6306E91F412F0400F336F8 /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
@@ -194,14 +182,6 @@
 		3A6306EE1F412F0400F336F8 /* UINavigationBar+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+rx.swift"; sourceTree = "<group>"; };
 		3A6306EF1F412F0400F336F8 /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		3A6306F01F412F0400F336F8 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
-		3A6306FC1F412F3500F336F8 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
-		3A6306FE1F412F3500F336F8 /* MyEverest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyEverest.xcdatamodel; sourceTree = "<group>"; };
-		3A6307071F412F6F00F336F8 /* CommonCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonCheckbox.swift; sourceTree = "<group>"; };
-		3A6307091F412F6F00F336F8 /* CommonDateSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDateSpinner.swift; sourceTree = "<group>"; };
-		3A63070A1F412F6F00F336F8 /* CommonSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonSpinner.swift; sourceTree = "<group>"; };
-		3A63070B1F412F6F00F336F8 /* CommonTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
-		3A63070C1F412F6F00F336F8 /* CommonTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTextView.swift; sourceTree = "<group>"; };
-		3A6307191F412F8D00F336F8 /* UILabel+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Additions.swift"; sourceTree = "<group>"; };
 		3A6307361F41307800F336F8 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63073A1F41307800F336F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A6307401F41309900F336F8 /* GoalsCoreDataModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsCoreDataModelTest.swift; sourceTree = "<group>"; };
@@ -209,8 +189,6 @@
 		3A90755A1F5B01F4008AFAB5 /* RxCoreDataModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCoreDataModelTest.swift; sourceTree = "<group>"; };
 		3A90755C1F5B0962008AFAB5 /* CoreDataModelErrorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModelErrorHandlerTest.swift; sourceTree = "<group>"; };
 		3A9BCB721F4418D200489365 /* DateFormateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormateTest.swift; sourceTree = "<group>"; };
-		3AB1193F1F5BDFB000C80FCD /* DataModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModelProtocol.swift; sourceTree = "<group>"; };
-		3AC935101F413DEB00DF7A5B /* UIStoryboard+Additionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Additionals.swift"; sourceTree = "<group>"; };
 		3ADCDC7D1F475898005560F4 /* GoalsListViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsListViewModelTest.swift; sourceTree = "<group>"; };
 		3AF27B351F41A08100C096C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localization.strings; sourceTree = "<group>"; };
 		3AF27B3A1F41A0CD00C096C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -293,7 +271,6 @@
 				3A22077D1F417A9B001A7DC2 /* ProcessInfoManager.swift */,
 				3A6306E11F412EE500F336F8 /* ErrorHandler.swift */,
 				3A5BEB3F20835CDC001BBF90 /* EncodableFactory.swift */,
-				3A6306E01F412EE500F336F8 /* AlertManager.swift */,
 				3A5BEB4020835CDC001BBF90 /* Logger.swift */,
 			);
 			path = Helpers;
@@ -344,7 +321,6 @@
 		3A5BEBB820836130001BBF90 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				3AC935141F4141A000DF7A5B /* Commons */,
 				3A5BEBC820836180001BBF90 /* Base */,
 				3A5BEBBB2083616A001BBF90 /* Utils */,
 				3A5BEBA7208360BA001BBF90 /* Styles */,
@@ -436,6 +412,18 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3A5BEC242083ADA4001BBF90 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3A6306451F412D5600F336F8 /* Info.plist */,
+				3AF27B391F41A0CD00C096C3 /* InfoPlist.strings */,
+				3AF27B361F41A08100C096C3 /* Localization.strings */,
+				3A5BEC202083A807001BBF90 /* R.generated.swift */,
+				3A63064E1F412E1100F336F8 /* Assets.xcassets */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 		3A63062D1F412D5600F336F8 = {
 			isa = PBXGroup;
 			children = (
@@ -470,11 +458,7 @@
 				3A5BEBE7208378B7001BBF90 /* Scenes */,
 				3A6306DF1F412EE500F336F8 /* Utils */,
 				3A6306CD1F412EAA00F336F8 /* Storyboards */,
-				3A6306451F412D5600F336F8 /* Info.plist */,
-				3AF27B391F41A0CD00C096C3 /* InfoPlist.strings */,
-				3AF27B361F41A08100C096C3 /* Localization.strings */,
-				3A5BEC202083A807001BBF90 /* R.generated.swift */,
-				3A63064E1F412E1100F336F8 /* Assets.xcassets */,
+				3A5BEC242083ADA4001BBF90 /* SupportFiles */,
 			);
 			path = MyEverest;
 			sourceTree = "<group>";
@@ -523,13 +507,11 @@
 				3A5BEC0D20838F60001BBF90 /* UIColor+Hex.swift */,
 				3A5BEBE520836E4A001BBF90 /* Observable+Extension.swift */,
 				3A5BEBE320836C33001BBF90 /* UIButton+Convenience.swift */,
-				3A6307191F412F8D00F336F8 /* UILabel+Additions.swift */,
 				3A6306E81F412F0400F336F8 /* Date+Additions.swift */,
 				3A6306E91F412F0400F336F8 /* String+Additions.swift */,
 				3A6306EA1F412F0400F336F8 /* UIApplication+Additions.swift */,
 				3A6306EF1F412F0400F336F8 /* UIView+Additions.swift */,
 				3A6306F01F412F0400F336F8 /* UIViewController+Additions.swift */,
-				3AC935101F413DEB00DF7A5B /* UIStoryboard+Additionals.swift */,
 				3A6306EB1F412F0400F336F8 /* UIButton+rx.swift */,
 				3A6306ED1F412F0400F336F8 /* UIControl+rx.swift */,
 				3A6306EE1F412F0400F336F8 /* UINavigationBar+rx.swift */,
@@ -541,9 +523,6 @@
 		3A6306FB1F412F3500F336F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3AB1193F1F5BDFB000C80FCD /* DataModelProtocol.swift */,
-				3A6306FC1F412F3500F336F8 /* CoreDataModel.swift */,
-				3A6306FD1F412F3500F336F8 /* MyEverest.xcdatamodeld */,
 				3A5BEC1520839F56001BBF90 /* GoalService.swift */,
 			);
 			path = Services;
@@ -566,19 +545,6 @@
 				3A63073A1F41307800F336F8 /* Info.plist */,
 			);
 			path = UnitTests;
-			sourceTree = "<group>";
-		};
-		3AC935141F4141A000DF7A5B /* Commons */ = {
-			isa = PBXGroup;
-			children = (
-				3A6307071F412F6F00F336F8 /* CommonCheckbox.swift */,
-				3A6307091F412F6F00F336F8 /* CommonDateSpinner.swift */,
-				3A63070A1F412F6F00F336F8 /* CommonSpinner.swift */,
-				3A63070B1F412F6F00F336F8 /* CommonTextField.swift */,
-				3A63070C1F412F6F00F336F8 /* CommonTextView.swift */,
-			);
-			name = Commons;
-			path = Views;
 			sourceTree = "<group>";
 		};
 		F632E9F45944B7CF30D6AD2F /* Frameworks */ = {
@@ -747,7 +713,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/MyEverest/SupportFiles\"";
 		};
 		46E6BA225699947A3A80447C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -919,7 +885,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5BEC0C20837DF7001BBF90 /* GoalInfoViewModel.swift in Sources */,
-				3A63071A1F412F8D00F336F8 /* UILabel+Additions.swift in Sources */,
 				3A5BEC212083A808001BBF90 /* R.generated.swift in Sources */,
 				3A5BEC0A20837DF7001BBF90 /* GoalInfoViewController.swift in Sources */,
 				3A5BEB9D20835F3F001BBF90 /* CoordinatorType.swift in Sources */,
@@ -933,20 +898,16 @@
 				3A5BEB7120835EBF001BBF90 /* MyCache.swift in Sources */,
 				3A5BEB1F20835CAB001BBF90 /* RxAlertController.swift in Sources */,
 				3A5BEBB1208360BA001BBF90 /* ButtonStyle.swift in Sources */,
-				3AC935111F413DEB00DF7A5B /* UIStoryboard+Additionals.swift in Sources */,
-				3AB119401F5BDFB000C80FCD /* DataModelProtocol.swift in Sources */,
 				3A5BEBC22083616A001BBF90 /* ActivityIndicator.swift in Sources */,
 				3A5BEC0520837DDF001BBF90 /* EditGoalViewModel.swift in Sources */,
 				3A5BEBDF2083631D001BBF90 /* AppStep.swift in Sources */,
 				3A5BEBC72083616A001BBF90 /* HasErrorTracker.swift in Sources */,
-				3A6307101F412F6F00F336F8 /* CommonCheckbox.swift in Sources */,
 				3A5BEC0E20838F61001BBF90 /* UIColor+Hex.swift in Sources */,
 				3A5BEBC52083616A001BBF90 /* HasActivityIndicator.swift in Sources */,
 				3A5BEB5520835D3B001BBF90 /* ViewControllerAssembly.swift in Sources */,
 				3A6306F41F412F0400F336F8 /* UIApplication+Additions.swift in Sources */,
 				3A6306F51F412F0400F336F8 /* UIButton+rx.swift in Sources */,
 				3A6306F91F412F0400F336F8 /* UIView+Additions.swift in Sources */,
-				3A6307001F412F3500F336F8 /* MyEverest.xcdatamodeld in Sources */,
 				3A5BEC1420839C95001BBF90 /* GoalCoordinator.swift in Sources */,
 				3A5BEB2320835CAB001BBF90 /* UIImagePickerController+Rx.swift in Sources */,
 				3A5BEBE420836C34001BBF90 /* UIButton+Convenience.swift in Sources */,
@@ -970,9 +931,7 @@
 				3A5BEC102083917F001BBF90 /* Resolver+Convince.swift in Sources */,
 				3A6306DD1F412EC200F336F8 /* Task.swift in Sources */,
 				3A5BEBDE2083631D001BBF90 /* AppCoordinator.swift in Sources */,
-				3A6306E31F412EE500F336F8 /* AlertManager.swift in Sources */,
 				3A5BEBE220836947001BBF90 /* SwiftyUserDefaults.swift in Sources */,
-				3A6307131F412F6F00F336F8 /* CommonSpinner.swift in Sources */,
 				3A5BEBB3208360BA001BBF90 /* LabelStyle.swift in Sources */,
 				3A6306DC1F412EC200F336F8 /* MyError.swift in Sources */,
 				3A6306F31F412F0400F336F8 /* String+Additions.swift in Sources */,
@@ -982,16 +941,12 @@
 				3A5BEC1C2083A739001BBF90 /* GoalTableViewCell.swift in Sources */,
 				3A5BEB7020835EBF001BBF90 /* DefaultsKeys.swift in Sources */,
 				3A5BEBB7208360BA001BBF90 /* UIViewStyle.swift in Sources */,
-				3A6307151F412F6F00F336F8 /* CommonTextView.swift in Sources */,
 				3A5BEB4520835CDC001BBF90 /* Logger.swift in Sources */,
-				3A6307121F412F6F00F336F8 /* CommonDateSpinner.swift in Sources */,
 				3A6306FA1F412F0400F336F8 /* UIViewController+Additions.swift in Sources */,
 				3A5BEBFC20837A20001BBF90 /* GoalsListViewModel.swift in Sources */,
 				3A5BEB2220835CAB001BBF90 /* RxImagePickerControllerDelegateProxy.swift in Sources */,
 				3A6306F71F412F0400F336F8 /* UIControl+rx.swift in Sources */,
-				3A6307141F412F6F00F336F8 /* CommonTextField.swift in Sources */,
 				3A5BEB5320835D3B001BBF90 /* OtherAssembly.swift in Sources */,
-				3A6306FF1F412F3500F336F8 /* CoreDataModel.swift in Sources */,
 				3A6306C91F412E8E00F336F8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1161,7 +1116,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3U4D7588QG;
-				INFOPLIST_FILE = MyEverest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyEverest/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abild.in.MyEverest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1178,7 +1133,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3U4D7588QG;
-				INFOPLIST_FILE = MyEverest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyEverest/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abild.in.MyEverest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1284,7 +1239,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3U4D7588QG;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
-				INFOPLIST_FILE = MyEverest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyEverest/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abild.in.MyEverest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1344,19 +1299,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3A6306FD1F412F3500F336F8 /* MyEverest.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3A6306FE1F412F3500F336F8 /* MyEverest.xcdatamodel */,
-			);
-			currentVersion = 3A6306FE1F412F3500F336F8 /* MyEverest.xcdatamodel */;
-			path = MyEverest.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3A63062E1F412D5600F336F8 /* Project object */;
 }

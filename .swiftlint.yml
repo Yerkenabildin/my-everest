@@ -20,5 +20,5 @@ excluded: # paths to ignore during linting. overridden by `included`.
   - Pods
   - UnitTests
   - XCode-Templates
-  - R.generated.swift
+  - MyEverest/SupportFiles/R.generated.swift
 
