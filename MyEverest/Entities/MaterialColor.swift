@@ -1,11 +1,3 @@
-//
-//  MaterialColore.swift
-//  BucketList
-//
-//  Created by  on 5/8/17.
-//
-//
-
 import UIKit
 
 enum MaterialColor: Int {

@@ -2,25 +2,17 @@ import Foundation
 import RxDataSources
 
 struct Goal {
-  var id: String = ""
+  let id: String
   var name: String?
   var note: String?
-  var colorIndex = 0
+  var color: UIColor?
   var doneDate: Date?
   var dueDate: Date?
-  var isComplete = true
+  var isComplete = false
   var tasks: [Task]?
 
-  var color: MaterialColor? {
-    get {
-      return MaterialColor(rawValue: Int(self.colorIndex))
-    }
-    set {
-      guard let rawValue = newValue?.rawValue else {
-        return
-      }
-      self.colorIndex = rawValue
-    }
+  init(id: String) {
+    self.id = id
   }
 }
 

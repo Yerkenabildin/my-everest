@@ -70,7 +70,7 @@
 		3A6306D01F412EAA00F336F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6306CE1F412EAA00F336F8 /* LaunchScreen.storyboard */; };
 		3A6306D91F412EC200F336F8 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306D31F412EC200F336F8 /* Goal.swift */; };
 		3A6306DB1F412EC200F336F8 /* MaterialColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306D51F412EC200F336F8 /* MaterialColor.swift */; };
-		3A6306DC1F412EC200F336F8 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306D61F412EC200F336F8 /* MyError.swift */; };
+		3A6306DC1F412EC200F336F8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306D61F412EC200F336F8 /* Errors.swift */; };
 		3A6306DD1F412EC200F336F8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306D71F412EC200F336F8 /* Task.swift */; };
 		3A6306E41F412EE500F336F8 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306E11F412EE500F336F8 /* ErrorHandler.swift */; };
 		3A6306F21F412F0400F336F8 /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306E81F412F0400F336F8 /* Date+Additions.swift */; };
@@ -171,7 +171,7 @@
 		3A6306CE1F412EAA00F336F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A6306D31F412EC200F336F8 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		3A6306D51F412EC200F336F8 /* MaterialColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialColor.swift; sourceTree = "<group>"; };
-		3A6306D61F412EC200F336F8 /* MyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
+		3A6306D61F412EC200F336F8 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3A6306D71F412EC200F336F8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		3A6306E11F412EE500F336F8 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		3A6306E81F412F0400F336F8 /* Date+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
@@ -485,7 +485,7 @@
 				3A6306D31F412EC200F336F8 /* Goal.swift */,
 				3A6306D71F412EC200F336F8 /* Task.swift */,
 				3A6306D51F412EC200F336F8 /* MaterialColor.swift */,
-				3A6306D61F412EC200F336F8 /* MyError.swift */,
+				3A6306D61F412EC200F336F8 /* Errors.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -933,7 +933,7 @@
 				3A5BEBDE2083631D001BBF90 /* AppCoordinator.swift in Sources */,
 				3A5BEBE220836947001BBF90 /* SwiftyUserDefaults.swift in Sources */,
 				3A5BEBB3208360BA001BBF90 /* LabelStyle.swift in Sources */,
-				3A6306DC1F412EC200F336F8 /* MyError.swift in Sources */,
+				3A6306DC1F412EC200F336F8 /* Errors.swift in Sources */,
 				3A6306F31F412F0400F336F8 /* String+Additions.swift in Sources */,
 				3A5BEBD420836180001BBF90 /* BaseViewController.swift in Sources */,
 				3A5BEC182083A1D1001BBF90 /* ServiceAssembly.swift in Sources */,

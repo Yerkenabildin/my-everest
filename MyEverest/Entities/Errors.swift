@@ -1,26 +1,12 @@
-//
-//  MyError.swift
-//  BucketList
-//
-//  Created by Yerkebulan Abildin on 11.06.17.
-//
-//
-
 import Foundation
 
-enum MyError: Error {
-  case general(String)
+enum InnerError: LocalizedError {
   case wrongType
-  case localStorageFail
   case nilValue
   case noImplementation
 
   var debugDescription: String {
     switch self {
-    case .general(let description):
-      return description
-    case .localStorageFail:
-      return "There was an error creating or loading the application's saved data."
     case .wrongType:
       return "Не правильный формат"
     case .noImplementation:
@@ -31,14 +17,24 @@ enum MyError: Error {
   }
 
   var localizedDescription: String {
+    return self.debugDescription
+  }
+}
+
+enum MyError: LocalizedError {
+  case general(String)
+
+  var debugDescription: String {
     switch self {
     case .general(let description):
       return description
-    case .localStorageFail, .wrongType:
-      return "There was an error creating or loading the application's saved data."
-    default:
-      return "Please try again"
+    }
+  }
 
+  var localizedDescription: String {
+    switch self {
+    case .general(let description):
+      return description
     }
   }
 }
