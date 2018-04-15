@@ -72,12 +72,12 @@ class GoalViewModel {
         goal.color = params.color
         goal.doneDate = params.doneDate
         goal.dueDate = params.dueDate
-      }).addDisposableTo(self.disposeBag)
+      }).disposed(by: self.disposeBag)
 
     self.saveTriggerSubject
       .withLatestFrom(self.goalObservable)
       .subscribe(onNext: { goal in
         CoreDataModel.default.save(goal)
-      }).addDisposableTo(self.disposeBag)
+      }).disposed(by: self.disposeBag)
   }
 }

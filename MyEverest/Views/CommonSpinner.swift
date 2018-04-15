@@ -48,10 +48,10 @@ class CommonSpinner<Element: CustomStringConvertible>: CommonTextField {
     self.tintColor = UIColor.clear
     self.inputView = self.pickerView
 
-    self.elements.asObservable()
-      .bind(to: self.pickerView.rx.rows()) { _, _, element in
-        return element.description
-      }.addDisposableTo(self.disposeBag)
+//    self.elements.asObservable()
+//      .bind(to: self.pickerView.rx.rows()) { _, _, element in
+//        return element.description
+//      }.addDisposableTo(self.disposeBag)
 
     self.pickerView.rx.itemSelected
       .asObservable()
@@ -60,13 +60,13 @@ class CommonSpinner<Element: CustomStringConvertible>: CommonTextField {
       }.withLatestFrom(self.elements.asObservable()) { row, elements in
         return elements.count > row ? elements[row] : nil
       }.bind(to: self.selectedElement)
-      .addDisposableTo(self.disposeBag)
+      .disposed(by: self.disposeBag)
 
     self.selectedElement.asObservable()
       .filter { $0 != nil }
       .map { $0?.description }
       .bind(to: self.rx.text)
-      .addDisposableTo(self.disposeBag)
+      .disposed(by: self.disposeBag)
   }
 
   override func becomeFirstResponder() -> Bool {

@@ -1,0 +1,7 @@
+// sourcery:inline:ViewController.AutoInject
+{% for type in types.all|annotated:"autoinjectVC" %}
+        container.register({{ type.name }}.self) { r in 
+            return {{ type.name }}(viewModel: r.resolve({{ type.annotations.autoinjectVC }}.self)!)
+        }
+{% endfor %}
+// sourcery:end

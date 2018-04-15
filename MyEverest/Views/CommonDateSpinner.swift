@@ -41,13 +41,13 @@ class CommonDateSpinner: CommonTextField {
       .asObservable()
       .skip(1)
       .bind(to: self.rx.selectedDate)
-      .addDisposableTo(self.disposeBag)
+      .disposed(by: self.disposeBag)
 
     self.rx.selectedDate.asObservable()
       .map { date in
         return date?.toString(withFormate: self.formate)
       }.bind(to: self.rx.text)
-      .addDisposableTo(self.disposeBag)
+      .disposed(by: self.disposeBag)
   }
 
   override func becomeFirstResponder() -> Bool {

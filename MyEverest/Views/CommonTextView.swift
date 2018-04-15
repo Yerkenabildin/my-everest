@@ -20,7 +20,7 @@ class CommonTextView: UIView {
   fileprivate var textView: UITextView!
   var placeholder: String? {
     didSet {
-      self.textView.placeholderText = self.placeholder
+//      self.textView.placehol = self.placeholder
       self.textView.text = self.placeholder
       self.textView.textColor = Constant.placeholderColor
     }

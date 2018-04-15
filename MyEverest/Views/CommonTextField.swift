@@ -15,7 +15,7 @@ fileprivate struct Constant {
 }
 
 class CommonTextField: UITextField {
-  let attributes = [NSForegroundColorAttributeName: Constant.placeholderColor]
+    let attributes = [NSAttributedStringKey.foregroundColor: Constant.placeholderColor]
   var placeholderColor: UIColor = Constant.placeholderColor {
     didSet {
       guard let placeholder = self.placeholder else {
