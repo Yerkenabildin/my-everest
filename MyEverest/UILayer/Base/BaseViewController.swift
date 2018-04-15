@@ -8,11 +8,9 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, HasDisposeBag {
+class BaseViewController: UIViewController {
 
-  private let viewModel: ViewModelType
-  init(viewModel: ViewModelType) {
-    self.viewModel = viewModel
+  init() {
     super.init(nibName: type(of: self).defaultNib, bundle: nil)
     Log.initOf(self)
   }
@@ -23,10 +21,8 @@ class BaseViewController: UIViewController, HasDisposeBag {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupUI()
     self.bindViewModel()
-    self.viewModel.bindActivityIndicator()
-    self.viewModel.bindErrorTracker()
-    setupUIElements()
     // hide the back button text
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
   }
@@ -36,7 +32,7 @@ class BaseViewController: UIViewController, HasDisposeBag {
     self.bindStyles()
   }
 
-  func setupUIElements() {
+  func setupUI() {
 
   }
 

@@ -7,8 +7,8 @@ disabled_rules: # rule identifiers to exclude from running
   - type_name
 
 line_length:
-  warning: 120
-  error: 120
+  warning: 150
+  error: 150
 
 identifier_name:
   warning: 1
@@ -20,4 +20,5 @@ excluded: # paths to ignore during linting. overridden by `included`.
   - Pods
   - UnitTests
   - XCode-Templates
+  - R.generated.swift
 

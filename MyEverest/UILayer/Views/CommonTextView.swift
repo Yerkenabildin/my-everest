@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxSwiftExt
 
 fileprivate struct Constant {
   static let textColor = ColorConstants.textColor

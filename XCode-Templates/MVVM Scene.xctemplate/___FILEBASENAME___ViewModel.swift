@@ -14,10 +14,6 @@ protocol ___FILEBASENAMEASIDENTIFIER___Type: ViewModelType {
 final class ___FILEBASENAMEASIDENTIFIER___: BaseViewModel, ___FILEBASENAMEASIDENTIFIER___Type, ___FILEBASENAMEASIDENTIFIER___Inputs, ___FILEBASENAMEASIDENTIFIER___Outputs {
   var coordinator: CoordinatorType?
 
-  init() {
-
-  }
-
   var inputs: ___FILEBASENAMEASIDENTIFIER___Inputs { return self }
   var outputs: ___FILEBASENAMEASIDENTIFIER___Outputs { return self }
 

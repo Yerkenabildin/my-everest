@@ -2,14 +2,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-// sourcery:autoinjectVC = ___VARIABLE_productName:identifier___ViewModelType
-final class ___FILEBASENAMEASIDENTIFIER___: BaseViewController {
+// sourcery:autoinjectVC = GoalInfoViewModelType
+final class GoalInfoViewController: BaseViewController {
 
   // MARK: - Params
-  private let viewModel: ___VARIABLE_productName:identifier___ViewModelType
+  private let viewModel: GoalInfoViewModelType
 
   // MARK: - Init
-  init(viewModel: ___VARIABLE_productName:identifier___ViewModelType) {
+  init(viewModel: GoalInfoViewModelType) {
     self.viewModel = viewModel
     super.init()
   }

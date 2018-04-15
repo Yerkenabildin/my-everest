@@ -73,14 +73,14 @@ class AlertManager: SCLAlertView {
 }
 
 extension Reactive where Base: AlertManager {
-  func showError() -> UIBindingObserver<Base, String> {
-    return UIBindingObserver(UIElement: self.base) { alertManager, text in
+  func showError() -> Binder<String> {
+    return Binder(self.base) { alertManager, text in
       alertManager.showError(text)
     }
   }
 
-  func showEdit() -> UIBindingObserver<Base, String> {
-    return UIBindingObserver(UIElement: self.base) { alertManager, text in
+  func showEdit() -> Binder<String> {
+    return Binder(self.base) { alertManager, text in
       alertManager.showEdit(text)
     }
   }
