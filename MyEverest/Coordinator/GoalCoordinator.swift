@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import PopupDialog
 
-final class AppCoordinator: CoordinatorType, CoordinatorDelegate {
+final class GoalCoordinator: CoordinatorType, CoordinatorDelegate {
 
   weak var delegate: CoordinatorDelegate?
   var childCoordinators: [CoordinatorType] = []
@@ -21,16 +21,20 @@ final class AppCoordinator: CoordinatorType, CoordinatorDelegate {
     }
   }
 
+  init(navigationController: UINavigationController) {
+    self.navigationController = navigationController
+  }
+
   @discardableResult
   func execute(step: CoordinatorStepType) -> Bool {
-    guard let appStep = step as? AppStep else {
+    guard let goalStep = step as? GoalStep else {
       return cascade(step: step)
     }
-    switch appStep {
-    case .home:
-      gotoHome()
-    default:
-      break
+    switch goalStep {
+    case .list:
+      gotoGoalsList()
+    case .create:
+      gotoCreateList()
     }
     return true
   }
@@ -40,11 +44,13 @@ final class AppCoordinator: CoordinatorType, CoordinatorDelegate {
       fatalError()
   }
 
-  private func gotoHome() {
-    let navigationController = UINavigationController()
-    self.root = navigationController
-    let goalCoordinator = GoalCoordinator(navigationController: navigationController)
-    self.add(childCoordinator: goalCoordinator)
-    goalCoordinator.execute(step: GoalStep.list)
+  private func gotoGoalsList() {
+    let vc = Dependency.shared.resolver.resolveNonNil(GoalsListViewController.self)
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
+
+  private func gotoCreateList() {
+    let vc = Dependency.shared.resolver.resolveNonNil(EditGoalViewController.self)
+    self.navigationController?.pushViewController(vc, animated: true)
   }
 }

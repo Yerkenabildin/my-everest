@@ -1,24 +1,15 @@
-//
-//  Goal+CoreDataClass.swift
-//  
-//
-//  Created by Yerkebulan Abildin on 13.08.17.
-//
-//
-
 import Foundation
-import CoreData
+import RxDataSources
 
-@objc(Goal)
-class Goal: NSManagedObject {
-
-  @NSManaged var name: String?
-  @NSManaged var note: String?
-  @NSManaged var colorIndex: Int
-  @NSManaged var tasksSet: Set<Task>?
-  @NSManaged var doneDate: Date?
-  @NSManaged var dueDate: Date?
-  @NSManaged var isComplete: Bool
+struct Goal {
+  var id: String = ""
+  var name: String?
+  var note: String?
+  var colorIndex = 0
+  var doneDate: Date?
+  var dueDate: Date?
+  var isComplete = true
+  var tasks: [Task]?
 
   var color: MaterialColor? {
     get {
@@ -31,36 +22,21 @@ class Goal: NSManagedObject {
       self.colorIndex = rawValue
     }
   }
+}
 
-  var tasks: [Task] {
-    get {
-      return Array(self.tasksSet ?? Set())
-    }
-    set {
-      insertToContext(newValue)
-      self.tasksSet = Set(newValue)
-    }
+// MARK: - RxDataSource
+extension Goal: Equatable {
+  static func == (lhs: Goal, rhs: Goal) -> Bool {
+    return lhs.id == rhs.id
   }
+}
 
-  private func insertToContext(_ tasks: [Task]) {
-    guard self.managedObjectContext != nil else {
-      return
-    }
-    for task in tasks where task.managedObjectContext == nil {
-      CoreDataModel.default.insert(task)
-    }
-  }
+// MARK: - RxDataSource
+extension Goal: IdentifiableType {
 
-  convenience init() {
-    let name = String(describing: type(of: self))
-    let entity = CoreDataModel.default.entityForName(name)
-    self.init(entity: entity, insertInto: nil)
-  }
+  typealias Identity = String
 
-  override func prepareForDeletion() {
-    super.prepareForDeletion()
-    for task in self.tasks {
-      CoreDataModel.default.delete(task)
-    }
+  var identity: Identity {
+    return self.id
   }
 }

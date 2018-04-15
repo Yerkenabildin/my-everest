@@ -5,7 +5,7 @@ final class ViewModelAssembly: Assembly {
   func assemble(container: Container) {
     // sourcery:inline:ViewModel.AutoInject
     container.register(EditGoalViewModelType.self) { (r) in
-      let vm = EditGoalViewModel()
+      let vm = EditGoalViewModel(goalService: r.resolve(GoalServiceType.self)!)
       vm.coordinator = r.resolve(CoordinatorType.self)
       return vm
     }
@@ -15,7 +15,7 @@ final class ViewModelAssembly: Assembly {
       return vm
     }
     container.register(GoalsListViewModelType.self) { (r) in
-      let vm = GoalsListViewModel()
+      let vm = GoalsListViewModel(goalService: r.resolve(GoalServiceType.self)!)
       vm.coordinator = r.resolve(CoordinatorType.self)
       return vm
     }

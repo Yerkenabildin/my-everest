@@ -12,9 +12,15 @@ protocol EditGoalViewModelType: ViewModelType {
 
 // sourcery: autoinject
 final class EditGoalViewModel: BaseViewModel, EditGoalViewModelType, EditGoalViewModelInputs, EditGoalViewModelOutputs {
+
   var coordinator: CoordinatorType?
+  private let goalService: GoalServiceType
+
+  init(goalService: GoalServiceType) {
+    self.goalService = goalService
+    super.init()
+  }
 
   var inputs: EditGoalViewModelInputs { return self }
   var outputs: EditGoalViewModelOutputs { return self }
-
 }

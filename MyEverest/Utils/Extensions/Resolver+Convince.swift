@@ -10,7 +10,7 @@ import Foundation
 import Swinject
 
 extension Resolver {
-  public func resolveNoNil<Service>(_ serviceType: Service.Type) -> Service {
+  public func resolveNonNil<Service>(_ serviceType: Service.Type) -> Service {
     guard let item = self.resolve(serviceType) else {
       fatalError(.noImplementation)
     }

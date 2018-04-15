@@ -100,12 +100,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `EditGoalViewController`.
     static let editGoalViewController = _R.nib._EditGoalViewController()
     /// Nib `GoalInfoViewController`.
     static let goalInfoViewController = _R.nib._GoalInfoViewController()
+    /// Nib `GoalTableViewCell`.
+    static let goalTableViewCell = _R.nib._GoalTableViewCell()
     /// Nib `GoalsListViewController`.
     static let goalsListViewController = _R.nib._GoalsListViewController()
     
@@ -119,6 +121,11 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.goalInfoViewController)
     }
     
+    /// `UINib(name: "GoalTableViewCell", in: bundle)`
+    static func goalTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.goalTableViewCell)
+    }
+    
     /// `UINib(name: "GoalsListViewController", in: bundle)`
     static func goalsListViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.goalsListViewController)
@@ -127,8 +134,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `GoalTableViewCell`.
+    static let goalTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "GoalTableViewCell")
+    
     fileprivate init() {}
   }
   
@@ -137,21 +147,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Main`.
-    static let main = _R.storyboard.main()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
-    }
-    
-    /// `UIStoryboard(name: "Main", bundle: ...)`
-    static func main(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.main)
     }
     
     fileprivate init() {}
@@ -275,7 +278,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      try _R.validate()
+      // There are no resources to validate
     }
     
     fileprivate init() {}
@@ -286,11 +289,7 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R: Rswift.Validatable {
-  static func validate() throws {
-    try storyboard.validate()
-  }
-  
+struct _R {
   struct nib {
     struct _EditGoalViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
@@ -314,6 +313,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _GoalTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = UIKit.UITableViewCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "GoalTableViewCell"
+      let name = "GoalTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UITableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UITableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _GoalsListViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "GoalsListViewController"
@@ -328,56 +341,12 @@ struct _R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  struct storyboard: Rswift.Validatable {
-    static func validate() throws {
-      try main.validate()
-    }
-    
+  struct storyboard {
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
-      
-      fileprivate init() {}
-    }
-    
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
-      
-      let bundle = R.hostingBundle
-      let goalViewController = StoryboardViewControllerResource<GoalViewController>(identifier: "GoalViewController")
-      let goalsListViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "GoalsListViewController")
-      let name = "Main"
-      let taskViewController = StoryboardViewControllerResource<TaskViewController>(identifier: "TaskViewController")
-      let tasksListViewController = StoryboardViewControllerResource<TasksListViewController>(identifier: "TasksListViewController")
-      
-      func goalViewController(_: Void = ()) -> GoalViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: goalViewController)
-      }
-      
-      func goalsListViewController(_: Void = ()) -> UIKit.UIViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: goalsListViewController)
-      }
-      
-      func taskViewController(_: Void = ()) -> TaskViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: taskViewController)
-      }
-      
-      func tasksListViewController(_: Void = ()) -> TasksListViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tasksListViewController)
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "done_date") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'done_date' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "calendar_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'calendar_icon' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "pen_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'pen_icon' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "color_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'color_icon' is used in storyboard 'Main', but couldn't be loaded.") }
-        if _R.storyboard.main().tasksListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tasksListViewController' could not be loaded from storyboard 'Main' as 'TasksListViewController'.") }
-        if _R.storyboard.main().goalViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'goalViewController' could not be loaded from storyboard 'Main' as 'GoalViewController'.") }
-        if _R.storyboard.main().goalsListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'goalsListViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
-        if _R.storyboard.main().taskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'taskViewController' could not be loaded from storyboard 'Main' as 'TaskViewController'.") }
-      }
       
       fileprivate init() {}
     }

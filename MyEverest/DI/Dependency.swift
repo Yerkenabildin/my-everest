@@ -2,7 +2,6 @@ import Foundation
 import Swinject
 
 class Dependency {
-  // TODO: Handle stubbing based on the `Environment`
   private var assembler: Assembler!
 
   var resolver: Resolver {
@@ -16,7 +15,8 @@ class Dependency {
   private init() { }
 
   func initialize() {
-    self.assembler = Assembler([ViewModelAssembly(),
+    self.assembler = Assembler([ServiceAssembly(),
+                                ViewModelAssembly(),
                                 ViewControllerAssembly(),
                                 OtherAssembly()])
   }
