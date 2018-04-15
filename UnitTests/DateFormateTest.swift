@@ -6,19 +6,24 @@
 //  Copyright © 2017 abild.in. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
 @testable import MyEverest
 
-class DateFormateTest: XCTestCase {
-  func testDateToString() {
-    let dateString = "16.05.1994"
-    let date = dateString.toDate()
-    XCTAssertNotNil(date)
-    let convertBackString = date?.toString()
-    XCTAssertNotNil(convertBackString)
-    XCTAssertEqual(convertBackString, dateString)
-    let convertBackDate = convertBackString?.toDate()
-    XCTAssertNotNil(convertBackDate)
-    XCTAssertEqual(convertBackDate, date)
+class DateFormateTest: QuickSpec {
+  override func spec() {
+    describe("DateFormater") {
+      it("From String To Date And Back") {
+        let dateString = "16.05.1994"
+        let date = dateString.toDate()
+        expect(date).toNot(beNil())
+        let convertBackString = date?.toString()
+        expect(convertBackString).toNot(beNil())
+        expect(convertBackString).to(equal(dateString))
+        let convertBackDate = convertBackString?.toDate()
+        expect(convertBackDate).toNot(beNil())
+        expect(convertBackDate).to(equal(date))
+      }
+    }
   }
 }

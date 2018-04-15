@@ -1,46 +1,105 @@
 PODS:
-  - IGColorPicker (0.2.1):
-    - M13Checkbox (~> 2.2.0)
-  - IQKeyboardManagerSwift (4.0.9)
-  - M13Checkbox (2.2.6)
-  - RxBlocking (3.6.1):
-    - RxSwift (~> 3.6)
-  - RxCocoa (3.6.1):
-    - RxSwift (~> 3.6)
-  - RxCoreData (0.3.1):
-    - RxCocoa (~> 3.0)
-    - RxSwift (~> 3.0)
-  - RxSwift (3.6.1)
-  - RxSwiftExt (2.5.1):
-    - RxSwiftExt/Core (= 2.5.1)
-  - RxSwiftExt/Core (2.5.1):
-    - RxSwift (~> 3.4)
-  - SCLAlertView (0.7.0)
-  - SwiftLint (0.21.0)
+  - Alamofire (4.7.0)
+  - Differentiator (3.0.2)
+  - DynamicBlurView (2.0.2)
+  - IQKeyboardManagerSwift (5.0.8)
+  - Kingfisher (4.6.4)
+  - Nimble (7.0.3)
+  - PopupDialog (0.7.1):
+    - DynamicBlurView (~> 2.0)
+  - Quick (1.2.0)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
+  - RxAlamofire (4.1.0):
+    - RxAlamofire/Core (= 4.1.0)
+  - RxAlamofire/Core (4.1.0):
+    - Alamofire (~> 4.5)
+    - RxSwift (~> 4.0)
+  - RxAnimated (0.4.1):
+    - RxAnimated/Core (= 0.4.1)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxAnimated/Core (0.4.1):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxBlocking (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxCoreData (0.4.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.0.2):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
+  - RxSwiftExt (3.2.0):
+    - RxSwiftExt/Core (= 3.2.0)
+  - RxSwiftExt/Core (3.2.0):
+    - RxSwift (~> 4.0)
+  - RxViewController (0.3.0):
+    - RxCocoa (>= 4.0.0)
+    - RxSwift (>= 4.0.0)
+  - SCLAlertView (0.8)
+  - SnapKit (4.0.0)
+  - Sourcery (0.10.1)
+  - SwiftLint (0.25.0)
+  - Swinject (2.2.0)
+  - SwinjectAutoregistration (2.1.1):
+    - Swinject (~> 2.1)
 
 DEPENDENCIES:
-  - IGColorPicker (~> 0.2)
-  - IQKeyboardManagerSwift (~> 4.0)
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - Nimble
+  - PopupDialog
+  - Quick
+  - R.swift
+  - RxAlamofire
+  - RxAnimated
   - RxBlocking
-  - RxCocoa (~> 3.6)
+  - RxCocoa
   - RxCoreData
-  - RxSwift (~> 3.6)
-  - RxSwiftExt (~> 2.5)
-  - SCLAlertView (~> 0.7)
-  - SwiftLint (~> 0.21)
+  - RxDataSources
+  - RxSwift
+  - RxSwiftExt
+  - RxViewController
+  - SCLAlertView
+  - SnapKit
+  - Sourcery
+  - SwiftLint
+  - Swinject
+  - SwinjectAutoregistration
 
 SPEC CHECKSUMS:
-  IGColorPicker: a6ed1bf42cccf9e260e24d33faec5263310b4cef
-  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
-  M13Checkbox: 9989b7e275f18493bd33b960dc68374c47d0027b
-  RxBlocking: 4f4bd5732e8b952e54ae8a57739bcfb645de12bc
-  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
-  RxCoreData: e8fbeaee6eab8b900a22ff4a677f099987adb429
-  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
-  RxSwiftExt: ec25c6df68d15ad6fe326792d60452b52e83d606
-  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  SwiftLint: 6de8b2d15f43c482bdec2953b8cfd696faa876e8
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
+  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
+  IQKeyboardManagerSwift: 2e7dc7f98c111458c1ea2b373f893e8cf95e2b97
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  PopupDialog: 39598b7d41719f5c025b4b70e62728bae7734fef
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  RxAlamofire: 96a2bff4694a1609bb59c57b53d99ea7a0ddc64a
+  RxAnimated: 8b3142830a60840ebed5755d33b9c88ad5a1647c
+  RxBlocking: f6054985901412fc8c02daa84e92d4ba68c61389
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxCoreData: 3717ff29afb7261f8cff4b893ffb0650367d0fe6
+  RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
+  RxSwiftExt: 64b7140124629a6a084159735f3714f0fb1c61d6
+  RxViewController: 203510707e73dd95f147f0c387710e3ec80d2b0f
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Sourcery: ac71ac4d490f62fd381a9f3b558f3093d91bddd5
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
+  Swinject: 4ca48bca7de5f398229a26abe1ac902b9f3ee541
+  SwinjectAutoregistration: d06b56bd8f912b9fb9c59c15181342558a734b1b
 
-PODFILE CHECKSUM: af60b3cc681640951d4dc6feae2b0f1e6c52a659
+PODFILE CHECKSUM: 7b4db33cccf23cd26c17c2e2de318dcaac2888e1
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

@@ -1,0 +1,18 @@
+// sourcery:inline:ViewModel.AutoInject
+{% for type in types.implementing.ViewModelType|annotated:"autoinject" %}
+    container.register({{ type.name }}Type.self) { (r) in
+      {% for method in type.initializers %}
+      {% if forloop.first %}
+      let vm = {{ type.name }}({% for param in method.parameters %}{{ param.name }}: r.resolve({{ param.typeName }}.self){% if not param.isOptional %}!{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %})
+      vm.coordinator = r.resolve(CoordinatorType.self)
+      return vm
+      {% endif %}
+      {% empty %}
+      let vm = {{ type.name }}()
+      vm.coordinator = r.resolve(CoordinatorType.self)
+      return vm
+      {% endfor %}
+    }
+{% endfor %}
+// sourcery:end
+

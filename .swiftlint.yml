@@ -3,16 +3,22 @@ disabled_rules: # rule identifiers to exclude from running
   - identifier_name
   - vertical_parameter_alignment
   - large_tuple
+  - class_delegate_protocol
+  - type_name
 
 line_length:
-  warning: 120
-  error: 120
+  warning: 150
+  error: 150
 
 identifier_name:
   warning: 1
   error: 1
 
 excluded: # paths to ignore during linting. overridden by `included`.
+  - MyEverest/Utils/Helpers/SwiftyUserDefaults.swift
   - Carthage
   - Pods
+  - UnitTests
+  - XCode-Templates
+  - MyEverest/SupportFiles/R.generated.swift
 

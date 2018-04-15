@@ -6,25 +6,30 @@
 //  Copyright © 2017 Yerkebulan Abildin. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
 @testable import MyEverest
 
-class HexColorTest: XCTestCase {
-  func testHexColor() {
-    let color = UIColor.colorWithHexaCode("FFFFFF")
-    XCTAssertNotNil(color)
-    XCTAssertTrue(color == UIColor.white)
-  }
+class HexColorTest: QuickSpec {
+  override func spec() {
+    describe("Color from hex") {
+      it("Without prefix") {
+        let color = UIColor.colorWithHexaCode("FFFFFF")
+        expect(color).toNot(beNil())
+        expect(color == UIColor.white).to(beTrue())
+      }
 
-  func testHexColorWithHash() {
-    let color = UIColor.colorWithHexaCode("#FFFFFF")
-    XCTAssertNotNil(color)
-    XCTAssertTrue(color == UIColor.white)
-  }
+      it("With prefix") {
+        let color = UIColor.colorWithHexaCode("#FFFFFF")
+        expect(color).toNot(beNil())
+        expect(color == UIColor.white).to(beTrue())
+      }
 
-  func testHexColorWithOverLimit() {
-    let color = UIColor.colorWithHexaCode("#FFFFFFFFFFFFFF")
-    XCTAssertNotNil(color)
-    XCTAssertTrue(color == UIColor.gray)
+      it("Wrong format") {
+        let color = UIColor.colorWithHexaCode("FFFFFFFFFFFFFF")
+        expect(color).toNot(beNil())
+        expect(color == UIColor.gray).to(beTrue())
+      }
+    }
   }
 }

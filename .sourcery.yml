@@ -1,0 +1,6 @@
+sources:
+  - MyEverest
+templates:
+  - MyEverest/Templates
+output:
+  MyEverest/CodeGenerated

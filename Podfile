@@ -12,24 +12,40 @@ project 'MyEverest', {
 abstract_target 'abild.in' do
   
   # reactive programming
-  pod 'RxSwift', '~>  3.6'
-  pod 'RxCocoa', '~>  3.6'
-  pod 'RxSwiftExt', '~>  2.5'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxSwiftExt'
   pod 'RxCoreData'
+  pod 'RxDataSources'
+  pod 'RxAnimated'
+  pod 'RxViewController'
+  pod 'RxAlamofire'
 
   target 'MyEverest' do
     
     # code style
-    pod 'SwiftLint', '~>  0.21'
+    pod 'SwiftLint'
 
     # UI elements
-    pod 'IQKeyboardManagerSwift', '~> 4.0'
-    pod 'IGColorPicker', '~> 0.2'
-    pod 'SCLAlertView', '~> 0.7'
+    pod 'IQKeyboardManagerSwift'
+    pod 'R.swift'
+    pod 'PopupDialog'
+#    pod 'IGColorPicker'
+    pod 'SCLAlertView'
+    pod 'SnapKit'
+    pod 'Kingfisher'
+
+
+    # Dependency Injection
+    pod 'Swinject'
+    pod 'SwinjectAutoregistration'
+    pod 'Sourcery'
   end
 
   target 'UnitTests' do
     pod 'RxBlocking'
+    pod 'Quick'
+    pod 'Nimble'
   end
 end
 
