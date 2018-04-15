@@ -18,9 +18,9 @@ struct NumberConstant {
 }
 
 struct ColorConstants {
-  static let tintColor =  UIColor.colorWithHexaCode("009688")
+  static let tintColor = UIColor.hex(0x9688)
   static let textColor = UIColor.black
-  static let placeholderColor = UIColor.colorWithHexaCode("8A8686")
+  static let placeholderColor = UIColor.hex(0x8A8686)
 }
 
 struct FontConstants {

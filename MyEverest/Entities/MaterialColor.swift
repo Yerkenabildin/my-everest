@@ -27,14 +27,14 @@ enum MaterialColor: Int {
   case blueGrey
 
   func color() -> UIColor {
-    return UIColor.colorWithHexaCode(self.code())
+    return UIColor.hex(self.code())
   }
 
   func name() -> String {
       return MaterialColor.names[self.rawValue]
   }
 
-  func code() -> String {
+  func code() -> UInt32 {
     return MaterialColor.codes[self.rawValue]
   }
 
@@ -43,7 +43,7 @@ enum MaterialColor: Int {
       return nil
     }
     for i in 0 ..< MaterialColor.blueGrey.rawValue + 1 {
-      if color == UIColor.colorWithHexaCode(MaterialColor.codes[i]) {
+      if color == UIColor.hex(MaterialColor.codes[i]) {
         return MaterialColor(rawValue: i)
       }
     }
@@ -57,17 +57,17 @@ enum MaterialColor: Int {
             "Light Green", "Lime", "Brown", "Blue Grey"]
   }
 
-  static var codes: [String] {
-    return ["#F44336", "#E91E63", "#FF9800", "#FF5722",
-            "#9C27B0", "#673AB7", "#3F51B5", "#2196F3",
-            "#039BE5", "#006064", "#009688", "#43A047",
-            "#689F38", "#827717", "#795548", "#607D8B"]
+  static var codes: [UInt32] {
+    return [0xF44336, 0xE91E63, 0xFF9800, 0xFF5722,
+            0x9C27B0, 0x673AB7, 0x3F51B5, 0x2196F3,
+            0x39BE5, 0x6064, 0x9688, 0x43A047,
+            0x689F38, 0x827717, 0x795548, 0x607D8B]
   }
 
   static var allColors: [UIColor] {
     return MaterialColor.codes.reduce([UIColor](), { colors, code in
       var colorsMutable = colors
-      colorsMutable.append(UIColor.colorWithHexaCode(code))
+      colorsMutable.append(UIColor.hex(code))
       return colorsMutable
     })
   }

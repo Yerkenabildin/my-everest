@@ -54,6 +54,8 @@
 		3A5BEC0A20837DF7001BBF90 /* GoalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC0720837DF7001BBF90 /* GoalInfoViewController.swift */; };
 		3A5BEC0B20837DF7001BBF90 /* GoalInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5BEC0820837DF7001BBF90 /* GoalInfoViewController.xib */; };
 		3A5BEC0C20837DF7001BBF90 /* GoalInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC0920837DF7001BBF90 /* GoalInfoViewModel.swift */; };
+		3A5BEC0E20838F61001BBF90 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC0D20838F60001BBF90 /* UIColor+Hex.swift */; };
+		3A5BEC102083917F001BBF90 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC0F2083917F001BBF90 /* File.swift */; };
 		3A63064D1F412DF900F336F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63064C1F412DF900F336F8 /* AppDelegate.swift */; };
 		3A63064F1F412E1100F336F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A63064E1F412E1100F336F8 /* Assets.xcassets */; };
 		3A6306C91F412E8E00F336F8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306C51F412E8E00F336F8 /* Constants.swift */; };
@@ -69,7 +71,6 @@
 		3A6306F31F412F0400F336F8 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306E91F412F0400F336F8 /* String+Additions.swift */; };
 		3A6306F41F412F0400F336F8 /* UIApplication+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EA1F412F0400F336F8 /* UIApplication+Additions.swift */; };
 		3A6306F51F412F0400F336F8 /* UIButton+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EB1F412F0400F336F8 /* UIButton+rx.swift */; };
-		3A6306F61F412F0400F336F8 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EC1F412F0400F336F8 /* UIColor+Additions.swift */; };
 		3A6306F71F412F0400F336F8 /* UIControl+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306ED1F412F0400F336F8 /* UIControl+rx.swift */; };
 		3A6306F81F412F0400F336F8 /* UINavigationBar+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EE1F412F0400F336F8 /* UINavigationBar+rx.swift */; };
 		3A6306F91F412F0400F336F8 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EF1F412F0400F336F8 /* UIView+Additions.swift */; };
@@ -156,6 +157,8 @@
 		3A5BEC0720837DF7001BBF90 /* GoalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalInfoViewController.swift; sourceTree = "<group>"; };
 		3A5BEC0820837DF7001BBF90 /* GoalInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalInfoViewController.xib; sourceTree = "<group>"; };
 		3A5BEC0920837DF7001BBF90 /* GoalInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalInfoViewModel.swift; sourceTree = "<group>"; };
+		3A5BEC0D20838F60001BBF90 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		3A5BEC0F2083917F001BBF90 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3A6306361F412D5600F336F8 /* MyEverest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyEverest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6306451F412D5600F336F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A63064C1F412DF900F336F8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,7 +176,6 @@
 		3A6306E91F412F0400F336F8 /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		3A6306EA1F412F0400F336F8 /* UIApplication+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Additions.swift"; sourceTree = "<group>"; };
 		3A6306EB1F412F0400F336F8 /* UIButton+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+rx.swift"; sourceTree = "<group>"; };
-		3A6306EC1F412F0400F336F8 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		3A6306ED1F412F0400F336F8 /* UIControl+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+rx.swift"; sourceTree = "<group>"; };
 		3A6306EE1F412F0400F336F8 /* UINavigationBar+rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+rx.swift"; sourceTree = "<group>"; };
 		3A6306EF1F412F0400F336F8 /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
@@ -490,19 +492,20 @@
 		3A6306E61F412F0400F336F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3A5BEC0D20838F60001BBF90 /* UIColor+Hex.swift */,
 				3A5BEBE520836E4A001BBF90 /* Observable+Extension.swift */,
 				3A5BEBE320836C33001BBF90 /* UIButton+Convenience.swift */,
 				3A6307191F412F8D00F336F8 /* UILabel+Additions.swift */,
 				3A6306E81F412F0400F336F8 /* Date+Additions.swift */,
 				3A6306E91F412F0400F336F8 /* String+Additions.swift */,
 				3A6306EA1F412F0400F336F8 /* UIApplication+Additions.swift */,
-				3A6306EC1F412F0400F336F8 /* UIColor+Additions.swift */,
 				3A6306EF1F412F0400F336F8 /* UIView+Additions.swift */,
 				3A6306F01F412F0400F336F8 /* UIViewController+Additions.swift */,
 				3AC935101F413DEB00DF7A5B /* UIStoryboard+Additionals.swift */,
 				3A6306EB1F412F0400F336F8 /* UIButton+rx.swift */,
 				3A6306ED1F412F0400F336F8 /* UIControl+rx.swift */,
 				3A6306EE1F412F0400F336F8 /* UINavigationBar+rx.swift */,
+				3A5BEC0F2083917F001BBF90 /* File.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -886,7 +889,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A6306F61F412F0400F336F8 /* UIColor+Additions.swift in Sources */,
 				3A5BEC0C20837DF7001BBF90 /* GoalInfoViewModel.swift in Sources */,
 				3A63071A1F412F8D00F336F8 /* UILabel+Additions.swift in Sources */,
 				3A5BEC0A20837DF7001BBF90 /* GoalInfoViewController.swift in Sources */,
@@ -907,6 +909,7 @@
 				3A5BEBDF2083631D001BBF90 /* AppStep.swift in Sources */,
 				3A5BEBC72083616A001BBF90 /* HasErrorTracker.swift in Sources */,
 				3A6307101F412F6F00F336F8 /* CommonCheckbox.swift in Sources */,
+				3A5BEC0E20838F61001BBF90 /* UIColor+Hex.swift in Sources */,
 				3A5BEBC52083616A001BBF90 /* HasActivityIndicator.swift in Sources */,
 				3A5BEB5520835D3B001BBF90 /* ViewControllerAssembly.swift in Sources */,
 				3A6306F41F412F0400F336F8 /* UIApplication+Additions.swift in Sources */,
@@ -931,6 +934,7 @@
 				3A6306DB1F412EC200F336F8 /* MaterialColor.swift in Sources */,
 				3A5BEB4420835CDC001BBF90 /* EncodableFactory.swift in Sources */,
 				3A5BEBC42083616A001BBF90 /* ErrorTracker.swift in Sources */,
+				3A5BEC102083917F001BBF90 /* File.swift in Sources */,
 				3A6306DD1F412EC200F336F8 /* Task.swift in Sources */,
 				3A5BEBDE2083631D001BBF90 /* AppCoordinator.swift in Sources */,
 				3A6306E31F412EE500F336F8 /* AlertManager.swift in Sources */,

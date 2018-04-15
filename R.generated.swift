@@ -132,23 +132,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 0 view controllers.
   struct segue {
-    /// This struct is generated for `GoalsListViewController`, and contains static references to 1 segues.
-    struct goalsListViewController {
-      /// Segue identifier `to_tasks`.
-      static let to_tasks: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, GoalsListViewController, TasksListViewController> = Rswift.StoryboardSegueIdentifier(identifier: "to_tasks")
-      
-      /// Optionally returns a typed version of segue `to_tasks`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func to_tasks(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, GoalsListViewController, TasksListViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.goalsListViewController.to_tasks, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   
@@ -362,7 +347,7 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let goalViewController = StoryboardViewControllerResource<GoalViewController>(identifier: "GoalViewController")
-      let goalsListViewController = StoryboardViewControllerResource<GoalsListViewController>(identifier: "GoalsListViewController")
+      let goalsListViewController = StoryboardViewControllerResource<UIKit.UIViewController>(identifier: "GoalsListViewController")
       let name = "Main"
       let taskViewController = StoryboardViewControllerResource<TaskViewController>(identifier: "TaskViewController")
       let tasksListViewController = StoryboardViewControllerResource<TasksListViewController>(identifier: "TasksListViewController")
@@ -371,7 +356,7 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: goalViewController)
       }
       
-      func goalsListViewController(_: Void = ()) -> GoalsListViewController? {
+      func goalsListViewController(_: Void = ()) -> UIKit.UIViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: goalsListViewController)
       }
       
@@ -390,7 +375,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "color_icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'color_icon' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().tasksListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tasksListViewController' could not be loaded from storyboard 'Main' as 'TasksListViewController'.") }
         if _R.storyboard.main().goalViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'goalViewController' could not be loaded from storyboard 'Main' as 'GoalViewController'.") }
-        if _R.storyboard.main().goalsListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'goalsListViewController' could not be loaded from storyboard 'Main' as 'GoalsListViewController'.") }
+        if _R.storyboard.main().goalsListViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'goalsListViewController' could not be loaded from storyboard 'Main' as 'UIKit.UIViewController'.") }
         if _R.storyboard.main().taskViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'taskViewController' could not be loaded from storyboard 'Main' as 'TaskViewController'.") }
       }
       

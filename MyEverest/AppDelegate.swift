@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
       launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         RxImagePickerDelegateProxy.register { RxImagePickerDelegateProxy(imagePicker: $0) }
 
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -34,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // looks bad but works. This one will pass force unwrap :)
         self.coordinator = Dependency.shared.resolver.resolve(CoordinatorType.self)
-        self.coordinator?.execute(step: AppStep.loading)
+        self.coordinator?.execute(step: AppStep.home)
 
         return true
     }
