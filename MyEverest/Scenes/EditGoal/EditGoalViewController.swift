@@ -6,7 +6,7 @@ import RxCocoa
 final class EditGoalViewController: BaseViewController {
 
   // MARK: - Params
-  private let viewModel: EditGoalViewModelType
+  let viewModel: EditGoalViewModelType
 
   // MARK: - Init
   init(viewModel: EditGoalViewModelType) {

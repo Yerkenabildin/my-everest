@@ -12,7 +12,6 @@ protocol GoalInfoViewModelType: ViewModelType {
 
 // sourcery: autoinject
 final class GoalInfoViewModel: BaseViewModel, GoalInfoViewModelType, GoalInfoViewModelInputs, GoalInfoViewModelOutputs {
-  var coordinator: CoordinatorType?
 
   var inputs: GoalInfoViewModelInputs { return self }
   var outputs: GoalInfoViewModelOutputs { return self }

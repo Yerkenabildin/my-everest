@@ -1,6 +1,6 @@
 import RxSwift
 
-fileprivate var disposeBagKey = "disposeBagKey"
+private var disposeBagKey = "disposeBagKey"
 
 protocol HasDisposeBag: class, AssociatedObjectStore {
     var disposeBag: DisposeBag { get }

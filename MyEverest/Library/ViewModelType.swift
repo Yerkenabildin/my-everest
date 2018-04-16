@@ -1,15 +1,9 @@
 import Foundation
+import RxFlow
 
-protocol ViewModelType: HasActivityIndicator, HasErrorTracker, HasDisposeBag {
-    var coordinator: CoordinatorType? { get }
+protocol ViewModelType: Stepper, HasActivityIndicator, HasErrorTracker, HasDisposeBag {
     func bindActivityIndicator()
     func bindErrorTracker()
-}
-
-extension ViewModelType {
-    var coordinator: CoordinatorType? {
-        return Dependency.shared.resolver.resolve(CoordinatorType.self)
-    }
 }
 
 extension ViewModelType {
@@ -27,8 +21,8 @@ extension ViewModelType {
     func bindErrorTracker() {
         self.errorTracker
             .asDriver()
-            .drive(onNext: { [weak self] (error) in
-                self?.coordinator?.execute(step: AppStep.presentError(error))
+            .drive(onNext: { _ in
+//                self?.step?.execute(step: AppStep.presentError(error))
             })
             .disposed(by: self.disposeBag)
     }

@@ -17,7 +17,6 @@ protocol GoalsListViewModelType: ViewModelType {
 // sourcery: autoinject
 final class GoalsListViewModel: BaseViewModel, GoalsListViewModelType, GoalsListViewModelInputs, GoalsListViewModelOutputs {
 
-  var coordinator: CoordinatorType?
   private let goalService: GoalServiceType
 
   init(goalService: GoalServiceType) {
@@ -28,7 +27,7 @@ final class GoalsListViewModel: BaseViewModel, GoalsListViewModelType, GoalsList
   private(set) lazy var goalsDriver = self.goalService.goalsObservable.asDriver(onErrorJustReturn: [])
 
   func createNewGoal() {
-    self.coordinator?.execute(step: GoalStep.create)
+    self.step.accept(GoalStep.create)
   }
 
   var inputs: GoalsListViewModelInputs { return self }

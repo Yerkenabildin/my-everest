@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 
-fileprivate struct RxImagePickerAlertAction: RxAlertActionType {
+private struct RxImagePickerAlertAction: RxAlertActionType {
   typealias Result = UIImagePickerControllerSourceType
 
   let title: String?

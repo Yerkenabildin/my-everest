@@ -14,7 +14,7 @@ extension Reactive where Base: UIImagePickerController {
   /**
    Reactive wrapper for `delegate` message.
    */
-  public var didFinishPickingMediaWithInfo: Observable<[String : AnyObject]> {
+  public var didFinishPickingMediaWithInfo: Observable<[String: AnyObject]> {
     return delegate
       .methodInvoked(#selector(UIImagePickerControllerDelegate.imagePickerController(_:didFinishPickingMediaWithInfo:)))
       .map({ (a) in
@@ -32,7 +32,7 @@ extension Reactive where Base: UIImagePickerController {
   }
 }
 
-fileprivate func castOrThrow<T>(_ resultType: T.Type, _ object: Any) throws -> T {
+private func castOrThrow<T>(_ resultType: T.Type, _ object: Any) throws -> T {
   guard let returnValue = object as? T else {
     throw RxCocoaError.castingError(object: object, targetType: resultType)
   }

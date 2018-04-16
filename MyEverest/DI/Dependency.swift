@@ -17,7 +17,6 @@ class Dependency {
   func initialize() {
     self.assembler = Assembler([ServiceAssembly(),
                                 ViewModelAssembly(),
-                                ViewControllerAssembly(),
-                                OtherAssembly()])
+                                ViewControllerAssembly()])
   }
 }

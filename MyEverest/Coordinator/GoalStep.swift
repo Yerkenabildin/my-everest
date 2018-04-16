@@ -1,7 +1,7 @@
 import Foundation
-import RxSwift
+import RxFlow
 
-enum GoalStep: CoordinatorStepType {
+enum GoalStep: Step {
   case list
   case create
 }

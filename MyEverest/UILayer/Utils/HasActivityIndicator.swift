@@ -1,7 +1,7 @@
 import ObjectiveC
 import UIKit
 
-fileprivate var activityIndicatorKey = "activityIndicator"
+private var activityIndicatorKey = "activityIndicator"
 
 protocol HasActivityIndicator: class, AssociatedObjectStore {
     var activityIndicator: ActivityIndicator { get set }

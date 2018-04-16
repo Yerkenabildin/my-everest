@@ -1,16 +1,6 @@
 import Foundation
-import RxSwift
+import RxFlow
 
-enum AppStep: CoordinatorStepType {
+enum AppStep: Step {
   case home
-  case presentError(Error)
-}
-
-enum ObservableAppStep<R>: ObservableCoordinatorStepType {
-  typealias Result = R
-  case presentAlert(title: String?,
-    message: String?,
-    preferredStyle: UIAlertControllerStyle,
-    actions: [RxAlertAction<R>])
-  case presentImagePicker
 }

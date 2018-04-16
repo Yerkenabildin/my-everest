@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, HasDisposeBag {
+class BaseViewController: UIViewController {
 
   init() {
     super.init(nibName: type(of: self).defaultNib, bundle: nil)

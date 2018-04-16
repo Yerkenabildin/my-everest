@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate struct ConstantKeys {
+private struct ConstantKeys {
   static let emptyDatabase = "-EmptyDatabase"
 }
 

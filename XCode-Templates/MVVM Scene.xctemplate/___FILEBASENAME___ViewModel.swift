@@ -12,9 +12,8 @@ protocol ___FILEBASENAMEASIDENTIFIER___Type: ViewModelType {
 
 // sourcery: autoinject
 final class ___FILEBASENAMEASIDENTIFIER___: BaseViewModel, ___FILEBASENAMEASIDENTIFIER___Type, ___FILEBASENAMEASIDENTIFIER___Inputs, ___FILEBASENAMEASIDENTIFIER___Outputs {
-  var coordinator: CoordinatorType?
 
+  // MARK: - ___FILEBASENAMEASIDENTIFIER___Type
   var inputs: ___FILEBASENAMEASIDENTIFIER___Inputs { return self }
   var outputs: ___FILEBASENAMEASIDENTIFIER___Outputs { return self }
-
 }

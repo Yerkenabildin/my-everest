@@ -6,7 +6,7 @@ import RxCocoa
 final class ___FILEBASENAMEASIDENTIFIER___: BaseViewController {
 
   // MARK: - Params
-  private let viewModel: ___VARIABLE_productName:identifier___ViewModelType
+  let viewModel: ___VARIABLE_productName:identifier___ViewModelType
 
   // MARK: - Init
   init(viewModel: ___VARIABLE_productName:identifier___ViewModelType) {

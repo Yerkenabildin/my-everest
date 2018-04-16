@@ -8,7 +8,7 @@ import RxDataSources
 final class GoalsListViewController: BaseViewController {
 
   // MARK: - Params
-  private let viewModel: GoalsListViewModelType
+    let viewModel: GoalsListViewModelType
   private let tableView = UITableView()
 
   // MARK: - Init

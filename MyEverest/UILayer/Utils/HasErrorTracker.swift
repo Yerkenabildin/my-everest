@@ -1,7 +1,7 @@
 import ObjectiveC
 import UIKit
 
-fileprivate var errorTrackerContext = "errorTracker"
+private var errorTrackerContext = "errorTracker"
 
 protocol HasErrorTracker: class, AssociatedObjectStore {
   var errorTracker: ErrorTracker { get set }

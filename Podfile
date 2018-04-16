@@ -12,6 +12,7 @@ project 'MyEverest', {
 abstract_target 'abild.in' do
   
   # reactive programming
+  pod 'RxFlow'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxSwiftExt'

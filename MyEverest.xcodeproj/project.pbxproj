@@ -21,7 +21,6 @@
 		3A5BEB5620835D3B001BBF90 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEB4F20835D3A001BBF90 /* ViewModelAssembly.swift */; };
 		3A5BEB7020835EBF001BBF90 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEB5A20835EBF001BBF90 /* DefaultsKeys.swift */; };
 		3A5BEB7120835EBF001BBF90 /* MyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEB5B20835EBF001BBF90 /* MyCache.swift */; };
-		3A5BEB9D20835F3F001BBF90 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEB8A20835F3F001BBF90 /* CoordinatorType.swift */; };
 		3A5BEBA020835F3F001BBF90 /* NSBundleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEB8D20835F3F001BBF90 /* NSBundleType.swift */; };
 		3A5BEBA620835F3F001BBF90 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEB9420835F3F001BBF90 /* ViewModelType.swift */; };
 		3A5BEBB1208360BA001BBF90 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBA9208360BA001BBF90 /* ButtonStyle.swift */; };
@@ -36,7 +35,7 @@
 		3A5BEBC72083616A001BBF90 /* HasErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBC12083616A001BBF90 /* HasErrorTracker.swift */; };
 		3A5BEBD420836180001BBF90 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBCB20836180001BBF90 /* BaseViewController.swift */; };
 		3A5BEBD520836180001BBF90 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBCC20836180001BBF90 /* BaseViewModel.swift */; };
-		3A5BEBDE2083631D001BBF90 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBDC2083631D001BBF90 /* AppCoordinator.swift */; };
+		3A5BEBDE2083631D001BBF90 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBDC2083631D001BBF90 /* AppFlow.swift */; };
 		3A5BEBDF2083631D001BBF90 /* AppStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBDD2083631D001BBF90 /* AppStep.swift */; };
 		3A5BEBE220836947001BBF90 /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBE120836947001BBF90 /* SwiftyUserDefaults.swift */; };
 		3A5BEBE420836C34001BBF90 /* UIButton+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEBE320836C33001BBF90 /* UIButton+Convenience.swift */; };
@@ -53,7 +52,7 @@
 		3A5BEC0E20838F61001BBF90 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC0D20838F60001BBF90 /* UIColor+Hex.swift */; };
 		3A5BEC102083917F001BBF90 /* Resolver+Convince.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC0F2083917F001BBF90 /* Resolver+Convince.swift */; };
 		3A5BEC1220839C40001BBF90 /* GoalStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC1120839C40001BBF90 /* GoalStep.swift */; };
-		3A5BEC1420839C95001BBF90 /* GoalCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC1320839C95001BBF90 /* GoalCoordinator.swift */; };
+		3A5BEC1420839C95001BBF90 /* GoalsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC1320839C95001BBF90 /* GoalsFlow.swift */; };
 		3A5BEC1620839F56001BBF90 /* GoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC1520839F56001BBF90 /* GoalService.swift */; };
 		3A5BEC182083A1D1001BBF90 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC172083A1D1001BBF90 /* ServiceAssembly.swift */; };
 		3A5BEC1A2083A365001BBF90 /* GoalSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEC192083A365001BBF90 /* GoalSection.swift */; };
@@ -109,7 +108,6 @@
 		3A5BEB4F20835D3A001BBF90 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		3A5BEB5A20835EBF001BBF90 /* DefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		3A5BEB5B20835EBF001BBF90 /* MyCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCache.swift; sourceTree = "<group>"; };
-		3A5BEB8A20835F3F001BBF90 /* CoordinatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
 		3A5BEB8D20835F3F001BBF90 /* NSBundleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleType.swift; sourceTree = "<group>"; };
 		3A5BEB9420835F3F001BBF90 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		3A5BEBA9208360BA001BBF90 /* ButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
@@ -124,7 +122,7 @@
 		3A5BEBC12083616A001BBF90 /* HasErrorTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasErrorTracker.swift; sourceTree = "<group>"; };
 		3A5BEBCB20836180001BBF90 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3A5BEBCC20836180001BBF90 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		3A5BEBDC2083631D001BBF90 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3A5BEBDC2083631D001BBF90 /* AppFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		3A5BEBDD2083631D001BBF90 /* AppStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStep.swift; sourceTree = "<group>"; };
 		3A5BEBE120836947001BBF90 /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
 		3A5BEBE320836C33001BBF90 /* UIButton+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Convenience.swift"; sourceTree = "<group>"; };
@@ -141,7 +139,7 @@
 		3A5BEC0D20838F60001BBF90 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		3A5BEC0F2083917F001BBF90 /* Resolver+Convince.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Convince.swift"; sourceTree = "<group>"; };
 		3A5BEC1120839C40001BBF90 /* GoalStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalStep.swift; sourceTree = "<group>"; };
-		3A5BEC1320839C95001BBF90 /* GoalCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCoordinator.swift; sourceTree = "<group>"; };
+		3A5BEC1320839C95001BBF90 /* GoalsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsFlow.swift; sourceTree = "<group>"; };
 		3A5BEC1520839F56001BBF90 /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
 		3A5BEC172083A1D1001BBF90 /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		3A5BEC192083A365001BBF90 /* GoalSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSection.swift; sourceTree = "<group>"; };
@@ -278,7 +276,6 @@
 		3A5BEB8020835F3F001BBF90 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				3A5BEB8A20835F3F001BBF90 /* CoordinatorType.swift */,
 				3A5BEB8D20835F3F001BBF90 /* NSBundleType.swift */,
 				3A5BEB9420835F3F001BBF90 /* ViewModelType.swift */,
 			);
@@ -331,9 +328,9 @@
 		3A5BEBE020836329001BBF90 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				3A5BEBDC2083631D001BBF90 /* AppCoordinator.swift */,
+				3A5BEBDC2083631D001BBF90 /* AppFlow.swift */,
 				3A5BEBDD2083631D001BBF90 /* AppStep.swift */,
-				3A5BEC1320839C95001BBF90 /* GoalCoordinator.swift */,
+				3A5BEC1320839C95001BBF90 /* GoalsFlow.swift */,
 				3A5BEC1120839C40001BBF90 /* GoalStep.swift */,
 			);
 			path = Coordinator;
@@ -537,7 +534,6 @@
 				3A6306331F412D5600F336F8 /* Frameworks */,
 				3A6306341F412D5600F336F8 /* Resources */,
 				759E79368BCEBC69C0709B12 /* [CP] Embed Pods Frameworks */,
-				948FFAD632BAB36E0CD848AA /* [CP] Copy Pods Resources */,
 				3A4067B11F42CCEB00B14C96 /* Swiftlint */,
 			);
 			buildRules = (
@@ -558,7 +554,6 @@
 				3A6307331F41307800F336F8 /* Frameworks */,
 				3A6307341F41307800F336F8 /* Resources */,
 				CFA7E732F28947F7D8158DAC /* [CP] Embed Pods Frameworks */,
-				6179E36843ABEBE124B6D3F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -577,7 +572,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = abild.in;
 				TargetAttributes = {
 					3A6306351F412D5600F336F8 = {
@@ -700,21 +695,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6179E36843ABEBE124B6D3F7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-abild.in-UnitTests/Pods-abild.in-UnitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		759E79368BCEBC69C0709B12 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -734,6 +714,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCoreData/RxCoreData.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxFlow/RxFlow.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/RxViewController/RxViewController.framework",
@@ -756,6 +737,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCoreData.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFlow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxViewController.framework",
@@ -767,21 +749,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-abild.in-MyEverest/Pods-abild.in-MyEverest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		948FFAD632BAB36E0CD848AA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-abild.in-MyEverest/Pods-abild.in-MyEverest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9C67A2ED6A7F696E591822DB /* [CP] Check Pods Manifest.lock */ = {
@@ -816,6 +783,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCoreData/RxCoreData.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxFlow/RxFlow.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/RxViewController/RxViewController.framework",
@@ -832,6 +800,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCoreData.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFlow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxViewController.framework",
@@ -854,7 +823,6 @@
 				3A5BEC0C20837DF7001BBF90 /* GoalInfoViewModel.swift in Sources */,
 				3A5BEC212083A808001BBF90 /* R.generated.swift in Sources */,
 				3A5BEC0A20837DF7001BBF90 /* GoalInfoViewController.swift in Sources */,
-				3A5BEB9D20835F3F001BBF90 /* CoordinatorType.swift in Sources */,
 				3A5BEB5020835D3B001BBF90 /* Dependency.swift in Sources */,
 				3A5BEBE620836E4B001BBF90 /* Observable+Extension.swift in Sources */,
 				3A63064D1F412DF900F336F8 /* AppDelegate.swift in Sources */,
@@ -875,7 +843,7 @@
 				3A6306F41F412F0400F336F8 /* UIApplication+Additions.swift in Sources */,
 				3A6306F51F412F0400F336F8 /* UIButton+rx.swift in Sources */,
 				3A6306F91F412F0400F336F8 /* UIView+Additions.swift in Sources */,
-				3A5BEC1420839C95001BBF90 /* GoalCoordinator.swift in Sources */,
+				3A5BEC1420839C95001BBF90 /* GoalsFlow.swift in Sources */,
 				3A5BEB2320835CAB001BBF90 /* UIImagePickerController+Rx.swift in Sources */,
 				3A5BEBE420836C34001BBF90 /* UIButton+Convenience.swift in Sources */,
 				3A5BEBBA2083615A001BBF90 /* BaseStyles.swift in Sources */,
@@ -897,7 +865,7 @@
 				3A5BEBC42083616A001BBF90 /* ErrorTracker.swift in Sources */,
 				3A5BEC102083917F001BBF90 /* Resolver+Convince.swift in Sources */,
 				3A6306DD1F412EC200F336F8 /* Task.swift in Sources */,
-				3A5BEBDE2083631D001BBF90 /* AppCoordinator.swift in Sources */,
+				3A5BEBDE2083631D001BBF90 /* AppFlow.swift in Sources */,
 				3A5BEBE220836947001BBF90 /* SwiftyUserDefaults.swift in Sources */,
 				3A5BEBB3208360BA001BBF90 /* LabelStyle.swift in Sources */,
 				3A6306DC1F412EC200F336F8 /* Errors.swift in Sources */,
@@ -971,6 +939,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -978,6 +947,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1029,6 +999,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1036,6 +1007,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1143,6 +1115,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1150,6 +1123,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
