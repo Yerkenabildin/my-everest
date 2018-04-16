@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A1E1D241F481EC500683722 /* TasksListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1E1D231F481EC500683722 /* TasksListViewModelTest.swift */; };
-		3A2207781F415DF4001A7DC2 /* HexColorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2207771F415DF4001A7DC2 /* HexColorTest.swift */; };
-		3A22077A1F4164E4001A7DC2 /* GoalViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2207791F4164E4001A7DC2 /* GoalViewModelTest.swift */; };
-		3A22077C1F416F06001A7DC2 /* QuickSpec+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22077B1F416F06001A7DC2 /* QuickSpec+Helpers.swift */; };
 		3A22077E1F417A9B001A7DC2 /* ProcessInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A22077D1F417A9B001A7DC2 /* ProcessInfoManager.swift */; };
 		3A5BEB1F20835CAB001BBF90 /* RxAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEB1920835CAB001BBF90 /* RxAlertController.swift */; };
 		3A5BEB2020835CAB001BBF90 /* RxImagePickerController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BEB1B20835CAB001BBF90 /* RxImagePickerController+Alert.swift */; };
@@ -81,15 +77,8 @@
 		3A6306F81F412F0400F336F8 /* UINavigationBar+rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EE1F412F0400F336F8 /* UINavigationBar+rx.swift */; };
 		3A6306F91F412F0400F336F8 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306EF1F412F0400F336F8 /* UIView+Additions.swift */; };
 		3A6306FA1F412F0400F336F8 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6306F01F412F0400F336F8 /* UIViewController+Additions.swift */; };
-		3A6307411F41309900F336F8 /* GoalsCoreDataModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6307401F41309900F336F8 /* GoalsCoreDataModelTest.swift */; };
-		3A9075591F5AE436008AFAB5 /* TasksCoreDataModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9075581F5AE436008AFAB5 /* TasksCoreDataModelTest.swift */; };
-		3A90755B1F5B01F4008AFAB5 /* RxCoreDataModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A90755A1F5B01F4008AFAB5 /* RxCoreDataModelTest.swift */; };
-		3A90755D1F5B0962008AFAB5 /* CoreDataModelErrorHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A90755C1F5B0962008AFAB5 /* CoreDataModelErrorHandlerTest.swift */; };
-		3A9BCB731F4418D200489365 /* DateFormateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BCB721F4418D200489365 /* DateFormateTest.swift */; };
-		3ADCDC7E1F475898005560F4 /* GoalsListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADCDC7D1F475898005560F4 /* GoalsListViewModelTest.swift */; };
 		3AF27B341F41A08100C096C3 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AF27B361F41A08100C096C3 /* Localization.strings */; };
 		3AF27B3B1F41A0CD00C096C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AF27B391F41A0CD00C096C3 /* InfoPlist.strings */; };
-		3AF27B401F41F05100C096C3 /* TaskViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF27B3F1F41F05100C096C3 /* TaskViewModelTest.swift */; };
 		9A90B45C109AA966C7A6ADBC /* Pods_abild_in_MyEverest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B1FAE9DC7DE20B4CAC565F /* Pods_abild_in_MyEverest.framework */; };
 		AD3F29C34A12744A07E0158E /* Pods_abild_in_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E797D8B2C3C78CCE1F7E774 /* Pods_abild_in_UnitTests.framework */; };
 /* End PBXBuildFile section */
@@ -106,10 +95,6 @@
 
 /* Begin PBXFileReference section */
 		3058BF2D79857B557004B8B5 /* Pods-abild.in-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abild.in-UnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-abild.in-UnitTests/Pods-abild.in-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3A1E1D231F481EC500683722 /* TasksListViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksListViewModelTest.swift; sourceTree = "<group>"; };
-		3A2207771F415DF4001A7DC2 /* HexColorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColorTest.swift; sourceTree = "<group>"; };
-		3A2207791F4164E4001A7DC2 /* GoalViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewModelTest.swift; sourceTree = "<group>"; };
-		3A22077B1F416F06001A7DC2 /* QuickSpec+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QuickSpec+Helpers.swift"; sourceTree = "<group>"; };
 		3A22077D1F417A9B001A7DC2 /* ProcessInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessInfoManager.swift; sourceTree = "<group>"; };
 		3A5BEB1920835CAB001BBF90 /* RxAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAlertController.swift; sourceTree = "<group>"; };
 		3A5BEB1B20835CAB001BBF90 /* RxImagePickerController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxImagePickerController+Alert.swift"; sourceTree = "<group>"; };
@@ -184,16 +169,9 @@
 		3A6306F01F412F0400F336F8 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		3A6307361F41307800F336F8 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63073A1F41307800F336F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A6307401F41309900F336F8 /* GoalsCoreDataModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsCoreDataModelTest.swift; sourceTree = "<group>"; };
-		3A9075581F5AE436008AFAB5 /* TasksCoreDataModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksCoreDataModelTest.swift; sourceTree = "<group>"; };
-		3A90755A1F5B01F4008AFAB5 /* RxCoreDataModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCoreDataModelTest.swift; sourceTree = "<group>"; };
-		3A90755C1F5B0962008AFAB5 /* CoreDataModelErrorHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModelErrorHandlerTest.swift; sourceTree = "<group>"; };
-		3A9BCB721F4418D200489365 /* DateFormateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormateTest.swift; sourceTree = "<group>"; };
-		3ADCDC7D1F475898005560F4 /* GoalsListViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsListViewModelTest.swift; sourceTree = "<group>"; };
 		3AF27B351F41A08100C096C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localization.strings; sourceTree = "<group>"; };
 		3AF27B3A1F41A0CD00C096C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AF27B3C1F41A0F000C096C3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3AF27B3F1F41F05100C096C3 /* TaskViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewModelTest.swift; sourceTree = "<group>"; };
 		7957280ADB5180F7D9E1465B /* Pods-abild.in-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abild.in-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-abild.in-UnitTests/Pods-abild.in-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E797D8B2C3C78CCE1F7E774 /* Pods_abild_in_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_abild_in_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A23DDEB60ACB3F3EA6CEFD /* Pods-abild.in-MyEverest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abild.in-MyEverest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-abild.in-MyEverest/Pods-abild.in-MyEverest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -531,17 +509,6 @@
 		3A6307371F41307800F336F8 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				3A6307401F41309900F336F8 /* GoalsCoreDataModelTest.swift */,
-				3A9075581F5AE436008AFAB5 /* TasksCoreDataModelTest.swift */,
-				3A90755A1F5B01F4008AFAB5 /* RxCoreDataModelTest.swift */,
-				3A90755C1F5B0962008AFAB5 /* CoreDataModelErrorHandlerTest.swift */,
-				3ADCDC7D1F475898005560F4 /* GoalsListViewModelTest.swift */,
-				3A1E1D231F481EC500683722 /* TasksListViewModelTest.swift */,
-				3A2207791F4164E4001A7DC2 /* GoalViewModelTest.swift */,
-				3AF27B3F1F41F05100C096C3 /* TaskViewModelTest.swift */,
-				3A9BCB721F4418D200489365 /* DateFormateTest.swift */,
-				3A2207771F415DF4001A7DC2 /* HexColorTest.swift */,
-				3A22077B1F416F06001A7DC2 /* QuickSpec+Helpers.swift */,
 				3A63073A1F41307800F336F8 /* Info.plist */,
 			);
 			path = UnitTests;
@@ -955,17 +922,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A90755B1F5B01F4008AFAB5 /* RxCoreDataModelTest.swift in Sources */,
-				3A9075591F5AE436008AFAB5 /* TasksCoreDataModelTest.swift in Sources */,
-				3A9BCB731F4418D200489365 /* DateFormateTest.swift in Sources */,
-				3A6307411F41309900F336F8 /* GoalsCoreDataModelTest.swift in Sources */,
-				3A22077C1F416F06001A7DC2 /* QuickSpec+Helpers.swift in Sources */,
-				3A2207781F415DF4001A7DC2 /* HexColorTest.swift in Sources */,
-				3A90755D1F5B0962008AFAB5 /* CoreDataModelErrorHandlerTest.swift in Sources */,
-				3ADCDC7E1F475898005560F4 /* GoalsListViewModelTest.swift in Sources */,
-				3A1E1D241F481EC500683722 /* TasksListViewModelTest.swift in Sources */,
-				3A22077A1F4164E4001A7DC2 /* GoalViewModelTest.swift in Sources */,
-				3AF27B401F41F05100C096C3 /* TaskViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

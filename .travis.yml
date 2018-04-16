@@ -1,13 +1,12 @@
 language: swift
-osx_image: xcode8.3
+osx_image: xcode9.3
 xcode_workspace: MyEverest.xcworkspace
 xcode_scheme: MyEverest
-xcode_sdk: iphonesimulator10.3
+xcode_sdk: iphonesimulator11.3
 
 notifications:
   email: false
-  webhooks:
-    secure: QkK2JZ8n0UP2GmhgM/geuuVnLPiXB/K0sIRGrucIBBIHNduItgAABbHXlatUARq9lf58eY05s9Zhxob1305Hb+O1FtnlnzIdVNnuH9B2viAg921tSV0Oov8E4Ix68lDHY7mxs0xu4z3tGsgtA2YjHoh29wXcKsnSrfFHYEUg/F4IH04FHk9O+52pOzgEkgAt6h6qBpEH6cnQ17I71Pp54Q5/32lll2AHdziR4nr+2aRqchO7oGxkwyht9r3gfyKShk/8s52FRAWLeYVi8KG8n79cqLcmBMxlg1y3dxsEZUYxtsaeMAPgmikax1AZrES+BqOVt7WLtuuZzZuNikW5aqWFM3tvHuOV/7hlOftpZGao2ect+qRfc5+8u+mnKvzQc1Y8w4RI4AKd6eY6JvrctHQHN8kAxao3ckw4dTVw1mVg0W5sA9iCH+pBWvC3VzSfc/JWuNtcRuKt5a2iun7SXDppxVdubLMDbqtANK9XAt/I1uCMgEI2GtkV/Q1uzvOk8lIbh3bDh6ZVha2YnvxBzQAPWsOSxgaUSBButYB1yxf2u49s8/bcMqwD70IfFH+xYb/428PjKqZuweLasosyYsiTk/xLbq56fjj/XiVFe79BRzOZGaMBgtxhSmHHC66vKdTVhsa5JO0ekyqHGAcR7iFh/cQ66F/MhN+tltusupk=
+  webhooks: https://fathomless-fjord-24024.herokuapp.com/notify
 
 env:
   global:
@@ -16,16 +15,14 @@ env:
   - SERVICE_NAME=travis-ci
 
 install:
-- gem install xcpretty
-- gem install xcov
-- gem install coveralls
-- gem install json -v '1.8.6'
+- gem install bundler
+- bundle install
 - pod install --repo-update
 
 script:
 - xcodebuild clean build -workspace $WORKSPACE -scheme $SCHEME | xcpretty
 - xcodebuild test -workspace $WORKSPACE -scheme $SCHEME -destination 'name=iPhone
-  6s' -enableCodeCoverage YES | xcpretty
+  X' -enableCodeCoverage YES | xcpretty
 
 after_success:
 - xcov -w $WORKSPACE -s $SCHEME -o coverage --only_project_targets --coveralls_service_name

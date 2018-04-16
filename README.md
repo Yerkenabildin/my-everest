@@ -22,6 +22,6 @@
         <img src="http://img.shields.io/badge/ios-9.0-brightgreen.svg" alt="iOS">
     </a>
     <a href="https://cocoapods.org/">
-        <img src="https://img.shields.io/badge/pod-v1.4.0-lightgrey.svg" alt="CocoaPods">
+        <img src="https://img.shields.io/badge/pod-v1.5.0-lightgrey.svg" alt="CocoaPods">
     </a>
 </p>
