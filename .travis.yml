@@ -28,4 +28,4 @@ after_success:
 - xcov -w $WORKSPACE -s $SCHEME -o coverage --only_project_targets --coveralls_service_name
   $SERVICE_NAME --coveralls_service_job_id $TRAVIS_JOB_ID
 
-#xcov -w MyEverest.xcworkspace -s MyEverest -o coverage --only_project_targets
+xcov -w MyEverest.xcworkspace -s MyEverest -o coverage --only_project_targets
