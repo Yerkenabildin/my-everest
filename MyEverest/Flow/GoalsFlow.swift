@@ -15,10 +15,10 @@ final class GoalsFlow: Flow {
   }
 
   func navigate(to step: Step) -> NextFlowItems {
-    guard let step = step as? GoalStep else {
-      return NextFlowItems.none
+    guard let goalStep = step as? GoalStep else {
+      return cascade(step: step)
     }
-    switch step {
+    switch goalStep {
     case .list:
       return navigationToGoalsList()
     case .create:

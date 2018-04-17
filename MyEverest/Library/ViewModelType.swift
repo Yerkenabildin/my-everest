@@ -19,11 +19,10 @@ extension ViewModelType {
 
 extension ViewModelType {
     func bindErrorTracker() {
-        self.errorTracker
-            .asDriver()
-            .drive(onNext: { _ in
-//                self?.step?.execute(step: AppStep.presentError(error))
-            })
-            .disposed(by: self.disposeBag)
+      self.errorTracker
+        .asDriver()
+        .map { PopupStep.error($0) }
+        .drive(self.step)
+        .disposed(by: self.disposeBag)
     }
 }

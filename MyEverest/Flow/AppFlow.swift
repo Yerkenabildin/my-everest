@@ -15,10 +15,10 @@ final class AppFlow: Flow {
   }
 
   func navigate(to step: Step) -> NextFlowItems {
-    guard let step = step as? AppStep else {
-      return NextFlowItems.none
+    guard let appStep = step as? AppStep else {
+       return cascade(step: step)
     }
-    switch step {
+    switch appStep {
     case .home:
       return navigationToHome()
     }

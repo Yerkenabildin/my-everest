@@ -179,7 +179,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localization` struct is generated, and contains static references to 8 localization keys.
+    /// This `R.string.localization` struct is generated, and contains static references to 10 localization keys.
     struct localization {
       /// Base translation: Choose deadline
       /// 
@@ -201,6 +201,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: Base
       static let description = Rswift.StringResource(key: "Description...", tableName: "Localization", bundle: R.hostingBundle, locales: ["Base"], comment: nil)
+      /// Base translation: Error
+      /// 
+      /// Locales: Base
+      static let error = Rswift.StringResource(key: "Error", tableName: "Localization", bundle: R.hostingBundle, locales: ["Base"], comment: nil)
       /// Base translation: Goal title
       /// 
       /// Locales: Base
@@ -209,6 +213,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: Base
       static let group = Rswift.StringResource(key: "Group", tableName: "Localization", bundle: R.hostingBundle, locales: ["Base"], comment: nil)
+      /// Base translation: OK
+      /// 
+      /// Locales: Base
+      static let ok = Rswift.StringResource(key: "ok", tableName: "Localization", bundle: R.hostingBundle, locales: ["Base"], comment: nil)
       /// Base translation: Value
       /// 
       /// Locales: Base
@@ -249,6 +257,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Description...", tableName: "Localization", bundle: R.hostingBundle, value: "Description...", comment: "")
       }
       
+      /// Base translation: Error
+      /// 
+      /// Locales: Base
+      static func error(_: Void = ()) -> String {
+        return NSLocalizedString("Error", tableName: "Localization", bundle: R.hostingBundle, value: "Error", comment: "")
+      }
+      
       /// Base translation: Goal title
       /// 
       /// Locales: Base
@@ -261,6 +276,13 @@ struct R: Rswift.Validatable {
       /// Locales: Base
       static func group(_: Void = ()) -> String {
         return NSLocalizedString("Group", tableName: "Localization", bundle: R.hostingBundle, value: "Group", comment: "")
+      }
+      
+      /// Base translation: OK
+      /// 
+      /// Locales: Base
+      static func ok(_: Void = ()) -> String {
+        return NSLocalizedString("ok", tableName: "Localization", bundle: R.hostingBundle, value: "OK", comment: "")
       }
       
       /// Base translation: Value

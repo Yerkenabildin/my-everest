@@ -15,5 +15,4 @@ final class GoalInfoViewModel: BaseViewModel, GoalInfoViewModelType, GoalInfoVie
 
   var inputs: GoalInfoViewModelInputs { return self }
   var outputs: GoalInfoViewModelOutputs { return self }
-
 }
