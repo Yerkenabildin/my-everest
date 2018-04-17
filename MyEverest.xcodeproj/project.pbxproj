@@ -83,6 +83,7 @@
 		994E22B120858B5C001AE6EE /* CascadeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E22B020858B5C001AE6EE /* CascadeFlow.swift */; };
 		994E22B420858E1E001AE6EE /* RxPopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E22B320858E1E001AE6EE /* RxPopupDialog.swift */; };
 		994E22B620858FC9001AE6EE /* Driver+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994E22B520858FC9001AE6EE /* Driver+Convenience.swift */; };
+		99DB541920859D1F003ABA04 /* MyEverestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB541820859D1F003ABA04 /* MyEverestTest.swift */; };
 		9A90B45C109AA966C7A6ADBC /* Pods_abild_in_MyEverest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B1FAE9DC7DE20B4CAC565F /* Pods_abild_in_MyEverest.framework */; };
 		AD3F29C34A12744A07E0158E /* Pods_abild_in_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E797D8B2C3C78CCE1F7E774 /* Pods_abild_in_UnitTests.framework */; };
 /* End PBXBuildFile section */
@@ -181,6 +182,7 @@
 		994E22B020858B5C001AE6EE /* CascadeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CascadeFlow.swift; sourceTree = "<group>"; };
 		994E22B320858E1E001AE6EE /* RxPopupDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxPopupDialog.swift; sourceTree = "<group>"; };
 		994E22B520858FC9001AE6EE /* Driver+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Driver+Convenience.swift"; sourceTree = "<group>"; };
+		99DB541820859D1F003ABA04 /* MyEverestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEverestTest.swift; sourceTree = "<group>"; };
 		9E797D8B2C3C78CCE1F7E774 /* Pods_abild_in_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_abild_in_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A23DDEB60ACB3F3EA6CEFD /* Pods-abild.in-MyEverest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abild.in-MyEverest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-abild.in-MyEverest/Pods-abild.in-MyEverest.debug.xcconfig"; sourceTree = "<group>"; };
 		B4B1FAE9DC7DE20B4CAC565F /* Pods_abild_in_MyEverest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_abild_in_MyEverest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -522,6 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				3A63073A1F41307800F336F8 /* Info.plist */,
+				99DB541820859D1F003ABA04 /* MyEverestTest.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 					3A6307351F41307800F336F8 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 3U4D7588QG;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3A6306351F412D5600F336F8;
 					};
@@ -918,6 +922,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99DB541920859D1F003ABA04 /* MyEverestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,11 +1108,13 @@
 			baseConfigurationReference = 3058BF2D79857B557004B8B5 /* Pods-abild.in-UnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3U4D7588QG;
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abild.in.UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyEverest.app/MyEverest";
 			};
@@ -1118,6 +1125,7 @@
 			baseConfigurationReference = 7957280ADB5180F7D9E1465B /* Pods-abild.in-UnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3U4D7588QG;
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1213,11 +1221,13 @@
 			baseConfigurationReference = F36F6ED898BD7E0C97EE161C /* Pods-abild.in-UnitTests.test.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 3U4D7588QG;
 				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = abild.in.UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyEverest.app/MyEverest";
 			};
