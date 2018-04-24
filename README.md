@@ -16,10 +16,10 @@
         <img src='https://coveralls.io/repos/github/Yerkenabildin/my-everest/badge.svg?branch=master&dummy=unused' alt='Coverage Status' />
     </a>
     <a href="https://swift.org">
-        <img src="http://img.shields.io/badge/swift-4.0-brightgreen.svg" alt="Swift 4.0">
+        <img src="https://img.shields.io/badge/swift-4.0-blue.svg" alt="Swift 4.0">
     </a>
     <a href="https://ru.wikipedia.org/wiki/IOS">
-        <img src="http://img.shields.io/badge/ios-9.0-brightgreen.svg" alt="iOS">
+        <img src="http://img.shields.io/badge/ios-9.0-blue.svg" alt="iOS">
     </a>
     <a href="https://cocoapods.org/">
         <img src="https://img.shields.io/badge/pod-v1.5.0-lightgrey.svg" alt="CocoaPods">
