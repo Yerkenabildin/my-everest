@@ -13,7 +13,7 @@ protocol RxAlertActionType {
     associatedtype Result
 
     var title: String? { get }
-    var style: UIAlertActionStyle { get }
+    var style: UIAlertAction.Style { get }
     var result: Result? { get }
 }
 
@@ -21,7 +21,7 @@ struct RxAlertAction<R>: RxAlertActionType {
     typealias Result = R
 
     let title: String?
-    let style: UIAlertActionStyle
+    let style: UIAlertAction.Style
     let result: R?
 }
 
@@ -29,7 +29,7 @@ extension Reactive where Base: UIAlertController {
     static func presentAlert<Action: RxAlertActionType, Result>(viewController: UIViewController,
                                                                 title: String? = nil,
                                                                 message: String? = nil,
-                                                                preferredStyle: UIAlertControllerStyle = .alert,
+                                                                preferredStyle: UIAlertController.Style = .alert,
                                                                 animated: Bool = true,
                                                                 actions: [Action]) -> Observable<Result?>
                                                                 where Action.Result == Result {

@@ -19,13 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var coordinator = Coordinator()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions
-    launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     RxImagePickerDelegateProxy.register { RxImagePickerDelegateProxy(imagePicker: $0) }
     Dependency.shared.initialize()
 
     // Override point for customization after application launch.
-    IQKeyboardManager.sharedManager().enable = true
-    IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+    IQKeyboardManager.shared.enable = true
+    IQKeyboardManager.shared.shouldResignOnTouchOutside = true
 
     guard let window = self.window else {
       return false

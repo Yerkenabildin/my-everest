@@ -1,0 +1,31 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+variables:
+  workspace: 'MyEverest.xcworkspace'
+  sdk: 'iphoneos'
+  configuration: 'Debug'
+  scheme: 'MyEverest'
+
+trigger:
+- master
+
+pool:
+  vmImage: 'macOS-10.13'
+
+steps:
+
+- task: CocoaPods@0
+  inputs:
+    forceRepoUpdate: true
+
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    sdk: '$(sdk)'
+    scheme: '$(scheme)'
+    configuration: '$(configuration)'
+    xcWorkspacePath: '$(workspace)'
+    xcodeVersion: '10' # Options: 8, 9, 10, default, specifyPath

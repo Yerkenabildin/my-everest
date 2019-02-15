@@ -4,10 +4,10 @@ import RxCocoa
 import RxSwiftExt
 
 private struct RxImagePickerAlertAction: RxAlertActionType {
-  typealias Result = UIImagePickerControllerSourceType
+    typealias Result = UIImagePickerController.SourceType
 
   let title: String?
-  let style: UIAlertActionStyle
+  let style: UIAlertAction.Style
   let result: Result?
 }
 
@@ -37,7 +37,7 @@ extension Reactive where Base: UIImagePickerController {
       }
       .take(1)
       .map {
-        $0[UIImagePickerControllerOriginalImage] as? UIImage
+        $0[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage
     }
 
   }

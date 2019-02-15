@@ -16,21 +16,6 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 0 colors.
-  struct color {
-    fileprivate init() {}
-  }
-  
-  /// This `R.file` struct is generated, and contains static references to 0 files.
-  struct file {
-    fileprivate init() {}
-  }
-  
-  /// This `R.font` struct is generated, and contains static references to 0 fonts.
-  struct font {
-    fileprivate init() {}
-  }
-  
   /// This `R.image` struct is generated, and contains static references to 9 images.
   struct image {
     /// Image `calendar_icon`.
@@ -112,23 +97,43 @@ struct R: Rswift.Validatable {
     static let goalsListViewController = _R.nib._GoalsListViewController()
     
     /// `UINib(name: "EditGoalViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.editGoalViewController) instead")
     static func editGoalViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.editGoalViewController)
     }
     
     /// `UINib(name: "GoalInfoViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.goalInfoViewController) instead")
     static func goalInfoViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.goalInfoViewController)
     }
     
     /// `UINib(name: "GoalTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.goalTableViewCell) instead")
     static func goalTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.goalTableViewCell)
     }
     
     /// `UINib(name: "GoalsListViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.goalsListViewController) instead")
     static func goalsListViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.goalsListViewController)
+    }
+    
+    static func editGoalViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.editGoalViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+    
+    static func goalInfoViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.goalInfoViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+    
+    static func goalTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UITableViewCell? {
+      return R.nib.goalTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UITableViewCell
+    }
+    
+    static func goalsListViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.goalsListViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
     fileprivate init() {}
@@ -139,11 +144,6 @@ struct R: Rswift.Validatable {
     /// Reuse identifier `GoalTableViewCell`.
     static let goalTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "GoalTableViewCell")
     
-    fileprivate init() {}
-  }
-  
-  /// This `R.segue` struct is generated, and contains static references to 0 view controllers.
-  struct segue {
     fileprivate init() {}
   }
   
@@ -300,7 +300,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -311,13 +311,17 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     struct _EditGoalViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "EditGoalViewController"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
       
@@ -328,7 +332,7 @@ struct _R {
       let bundle = R.hostingBundle
       let name = "GoalInfoViewController"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
       
@@ -342,7 +346,7 @@ struct _R {
       let identifier = "GoalTableViewCell"
       let name = "GoalTableViewCell"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UITableViewCell? {
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UITableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UITableViewCell
       }
       
@@ -353,7 +357,7 @@ struct _R {
       let bundle = R.hostingBundle
       let name = "GoalsListViewController"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
       
@@ -363,12 +367,21 @@ struct _R {
     fileprivate init() {}
   }
   
-  struct storyboard {
-    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try launchScreen.validate()
+    }
+    
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
+      }
       
       fileprivate init() {}
     }
