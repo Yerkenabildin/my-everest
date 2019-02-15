@@ -17,7 +17,7 @@ env:
 install:
 - gem install bundler
 - bundle install
-- pod install --repo-update
+- bundle exec pod install --repo-update
 
 script:
 - xcodebuild clean build -workspace $WORKSPACE -scheme $SCHEME | xcpretty

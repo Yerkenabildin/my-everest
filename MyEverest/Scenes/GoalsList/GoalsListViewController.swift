@@ -25,9 +25,9 @@ final class GoalsListViewController: BaseViewController {
   override func setupUI() {
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
     self.navigationItem.rightBarButtonItem = addButton
-    addButton.rx.tap.asDriver()
-      .drive(onNext: self.viewModel.inputs.createNewGoal)
-      .disposed(by: self.disposeBag)
+//    addButton.rx.tap.asDriver()
+//      .drive(onNext: self.viewModel.inputs.createNewGoal)
+//      .disposed(by: self.disposeBag)
 
     self.view.addSubview(self.tableView)
     self.tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
@@ -48,10 +48,10 @@ final class GoalsListViewController: BaseViewController {
         return cell
     })
 
-    self.viewModel.outputs.goalsDriver
-      .map { [GoalSection($0)] }
-      .drive(self.tableView.rx.items(dataSource: dataSource))
-      .disposed(by: self.disposeBag)
+//    self.viewModel.outputs.goalsDriver
+//      .map { [GoalSection($0)] }
+//      .drive(self.tableView.rx.items(dataSource: dataSource))
+//      .disposed(by: self.disposeBag)
   }
 
   override func bindStyles() {

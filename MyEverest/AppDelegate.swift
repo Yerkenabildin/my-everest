@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return false
     }
 
-    let appFlow = AppFlow(with: window)
-    coordinator.coordinate(flow: appFlow, withStepper: OneStepper(withSingleStep: AppStep.home))
+//    let appFlow = AppFlow(with: window)
+//    coordinator.coordinate(flow: appFlow, with: OneStepper(withSingleStep: AppStep.home))
 
     return true
   }

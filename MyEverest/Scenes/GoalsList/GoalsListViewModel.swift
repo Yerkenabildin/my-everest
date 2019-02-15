@@ -27,7 +27,7 @@ final class GoalsListViewModel: BaseViewModel, GoalsListViewModelType, GoalsList
   private(set) lazy var goalsDriver = self.goalService.goalsObservable.asDriver(onErrorJustReturn: [])
 
   func createNewGoal() {
-    self.step.accept(GoalStep.create)
+//    self.steps.accept(GoalStep.create)
   }
 
   var inputs: GoalsListViewModelInputs { return self }

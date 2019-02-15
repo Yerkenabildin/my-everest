@@ -1,7 +1,7 @@
 import Foundation
 import RxFlow
 
-protocol ViewModelType: Stepper, HasActivityIndicator, HasErrorTracker, HasDisposeBag {
+protocol ViewModelType: HasActivityIndicator, HasErrorTracker, HasDisposeBag {
     func bindActivityIndicator()
     func bindErrorTracker()
 }
@@ -19,10 +19,10 @@ extension ViewModelType {
 
 extension ViewModelType {
     func bindErrorTracker() {
-      self.errorTracker
-        .asDriver()
-        .map { PopupStep.error($0) }
-        .drive(self.step)
-        .disposed(by: self.disposeBag)
+//      self.errorTracker
+//        .asDriver()
+//        .map { PopupStep.error($0) }
+//        .drive(self.steps)
+//        .disposed(by: self.disposeBag)
     }
 }

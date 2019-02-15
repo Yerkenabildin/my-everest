@@ -29,3 +29,5 @@ steps:
     configuration: '$(configuration)'
     xcWorkspacePath: '$(workspace)'
     xcodeVersion: '10' # Options: 8, 9, 10, default, specifyPath
+    packageApp: false
+    useXcpretty: true
